@@ -31,7 +31,11 @@
 yarn-debug.log*
 .yarn-integrity
 
-
-# Ignore database.yml
-/config/database.yml
+# RubyMine
 .idea
+
+# Ignore database credentials
+/config/database.yml
+
+# Ignore omniauth secrets
+/config/initializers/omniauth.rb
