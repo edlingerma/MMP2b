@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: mmp2b_development
-  username: postgres
-  password: postgres
+  username: <%= ENV['LOCAL_USER'] %>
+  password: <%= ENV['LOCAL_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
