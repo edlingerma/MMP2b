@@ -60,7 +60,7 @@ development:
 test:
   <<: *default
   database: mmp2b_test
-  username: postgres
+  username: <%= ENV['LOCAL_USER'] %>
   password: <%= ENV['LOCAL_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
