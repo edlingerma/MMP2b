@@ -34,8 +34,5 @@ yarn-debug.log*
 # RubyMine
 .idea
 
-# Ignore database credentials
-/config/database.yml
-
-# Ignore omniauth secrets
-/config/initializers/omniauth.rb
+# Ignore .env
+/.env

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
     # provider + uid uniquely identify a user
     User.find_or_create_by!(
         provider: auth['provider'],
-        name:     auth.info['name'],
+        name: auth.info['name'],
         username: auth.info['name'],
         password_digest: '1234567890'
     )

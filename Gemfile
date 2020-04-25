@@ -55,3 +55,6 @@ gem 'bcrypt'
 # Omniauth
 gem 'omniauth-facebook'
 gem 'omniauth'
+
+gem 'dotenv', groups: [:development, :test]
+gem 'dotenv-rails'
