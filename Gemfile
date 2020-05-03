@@ -58,3 +58,6 @@ gem 'omniauth'
 
 gem 'dotenv', groups: [:development, :test]
 gem 'dotenv-rails'
+
+# Add Linting for Rails
+gem 'rubocop-rails', require: false
