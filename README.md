@@ -23,4 +23,8 @@ Things you may want to cover:
 
 * ...
 
-:)
+## Javascript
+
+``npm run lint`` Starts standard linting
+
+``npm run server`` Start webpack-Server for development
