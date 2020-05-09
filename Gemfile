@@ -61,3 +61,5 @@ gem 'dotenv-rails'
 
 # Add Linting for Rails
 gem 'rubocop-rails', require: false
+
+gem "bulma-rails", "~> 0.8.0"

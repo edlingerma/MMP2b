@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :challenges
   root 'home#index'
   resources :users, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]

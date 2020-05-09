@@ -10,10 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_185209) do
+ActiveRecord::Schema.define(version: 2020_05_09_115758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "goal"
+    t.string "unit"
+    t.bigint "challenge_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_activities_on_challenge_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "owner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_challenges_on_owner_id"
+  end
+
+  create_table "challenges_users", id: false, force: :cascade do |t|
+    t.bigint "challenge_id", null: false
+    t.bigint "user_id", null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "amount"
+    t.bigint "activity_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_entries_on_activity_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "challenge_id"
+    t.boolean "confirmed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["challenge_id"], name: "index_requests_on_challenge_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -26,4 +71,5 @@ ActiveRecord::Schema.define(version: 2020_04_18_185209) do
     t.string "secret"
   end
 
+  add_foreign_key "challenges", "users", column: "owner_id"
 end
