@@ -18,19 +18,18 @@
   <%= activity.description %><br />
   <%= @activities_amount[i] %><br />
   <div id="container-<%= i %>"></div>
-  <p id="notice"><%= notice %></p>
   <%= javascript_tag "insertBar('#{activity.title}', #{@activities_amount[i]}, #{i})" %>
-  <% if @is_member %>
+  <% if current_user && is_member %>
     <%= link_to 'Contribute', new_entry_path(activity_id: activity.id) %>
   <% end %>
 <% end %>
 
-<% if current_user == @challenge.owner %>
+<% if is_owner %>
 <%= link_to 'Manage members', show_owner_challenge_path %>
 <% end %>
 <br />
 
 <%= link_to 'Back', challenges_path %>
-<% if !@request_exists %>
+<% unless is_candidate %>
   <%= link_to 'Join', request_membership_challenge_path %>
 <% end %>

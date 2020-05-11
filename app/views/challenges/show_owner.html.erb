@@ -8,7 +8,7 @@
 <% @confirmed_requests.each do |request| %>
 <br />Members
   <%= request.user.name %>
-  <%= link_to 'delete', reject_request_path(request.id) %>
+  <%= link_to 'remove', reject_request_path(request.id) %>
 <% end %>
 
 <% @unconfirmed_requests.each do |request| %>

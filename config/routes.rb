@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :challenges do 
-    member do 
+  resources :challenges do
+    member do
       get :request_membership
       get :show_owner
     end
@@ -9,20 +9,20 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :requests do 
-    member do 
+  resources :requests do
+    member do
       get :accept
       get :reject
     end
   end
 
-  resources :entries do 
-    member do 
+  resources :entries do
+    member do
       get :new
       post :create
     end
   end
-  
+
   root 'challenges#index'
   resources :users, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]

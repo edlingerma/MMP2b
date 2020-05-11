@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def logged_in
+    unless current_user
+      redirect_to signup_path, notice: 'You must be logged in.'
+    end
+  end
+
   def current_amount(activity)
     activities_amount = 0
     entries = activity.entries
