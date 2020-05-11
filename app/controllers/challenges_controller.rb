@@ -1,8 +1,9 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner, :check_requests]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner, :check_requests, :is_member]
   before_action :logged_in, only: [:new, :request_membership]
   before_action :is_owner, only: [:show_owner]
   before_action :check_requests, only: [:show]
+  before_action :is_member, only: [:show]
 
   # GET /challenges
   # GET /challenges.json

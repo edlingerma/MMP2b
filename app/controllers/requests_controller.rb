@@ -10,8 +10,6 @@ class RequestsController < ApplicationController
     end
   end
   
-
-  # TODO Ignore Button
   def reject
     if @request.destroy
         redirect_to show_owner_challenge_path(@challenge), notice: 'Request was successfully rejected.'
