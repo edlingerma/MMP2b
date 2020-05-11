@@ -1,6 +1,6 @@
-const insertBar = (value, percent) => {
+const insertBar = (value, percent, iterator) => {
   const ProgressBar = require('progressbar.js')
-  const bar = new ProgressBar.Line('#container', {
+  const bar = new ProgressBar.Line('#container-'+iterator, {
     easing: 'easeInOut',
     color: '#FFEA82',
     strokeWidth: 2,
