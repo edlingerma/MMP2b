@@ -35,5 +35,7 @@
 <br />
 
 <%= link_to 'New Challenge', new_challenge_path %>
-<%= link_to 'My Challenges', my_challenges_challenges_path %>
+<% if current_user %>
+  <%= link_to 'My Challenges', my_challenges_challenges_path %>
+<% end %>
 <%= link_to 'Home', root_path %>
