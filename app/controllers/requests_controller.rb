@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:accept, :reject]
-  before_action :logged_in, only: [:new, :request_membership]
+  before_action :logged_in, only: [:accept, :reject]
 
   def accept 
     if @request.update(confirmed: true)

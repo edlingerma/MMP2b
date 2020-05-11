@@ -17,8 +17,6 @@
         <td><%= challenge.title %></td>
         <td><%= challenge.description %></td>
         <td><%= link_to 'Show', challenge %></td>
-        <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
-        <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,5 +42,4 @@
 <% end %>
 <div id="container"></div>
 <p id="notice"><%= notice %></p>
-<p>Find me in app/views/home/index.html.erb</p>
 <%= javascript_tag "insertBar('Laufen', 0.5)" %>

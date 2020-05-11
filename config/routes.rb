@@ -11,6 +11,13 @@ Rails.application.routes.draw do
       get :reject
     end
   end
+
+  resources :entries do 
+    member do 
+      get :new
+      post :create
+    end
+  end
   
   root 'challenges#index'
   resources :users, only: [:create]

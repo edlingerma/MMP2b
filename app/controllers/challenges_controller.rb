@@ -19,15 +19,8 @@ class ChallengesController < ApplicationController
 
     @activities_amount = []
     @activities.each_with_index do |activity, i|
-      @activities_amount[i] = 0
-      entries = activity.entries
-
-      entries.each do |entry|
-        @activities_amount[i] += entry.amount
-      end
-
+      @activities_amount[i] = current_amount(activity)
       @activities_amount[i] /= activity.goal.to_f 
-
     end
 
   end
