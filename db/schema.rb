@@ -35,11 +35,6 @@ ActiveRecord::Schema.define(version: 2020_05_09_115758) do
     t.index ["owner_id"], name: "index_challenges_on_owner_id"
   end
 
-  create_table "challenges_users", id: false, force: :cascade do |t|
-    t.bigint "challenge_id", null: false
-    t.bigint "user_id", null: false
-  end
-
   create_table "entries", force: :cascade do |t|
     t.integer "amount"
     t.bigint "activity_id"
@@ -54,9 +49,11 @@ ActiveRecord::Schema.define(version: 2020_05_09_115758) do
     t.bigint "user_id"
     t.bigint "challenge_id"
     t.boolean "confirmed"
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["challenge_id"], name: "index_requests_on_challenge_id"
+    t.index ["owner_id"], name: "index_requests_on_owner_id"
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
@@ -72,4 +69,5 @@ ActiveRecord::Schema.define(version: 2020_05_09_115758) do
   end
 
   add_foreign_key "challenges", "users", column: "owner_id"
+  add_foreign_key "requests", "users", column: "owner_id"
 end

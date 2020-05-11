@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  resources :challenges
-  root 'home#index'
+  resources :challenges do 
+    member do 
+      get :request_membership
+    end
+  end
+
+  resources :requests do 
+    member do 
+      get :accept
+      get :reject
+    end
+  end
+  
+  root 'challenges#index'
   resources :users, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
 

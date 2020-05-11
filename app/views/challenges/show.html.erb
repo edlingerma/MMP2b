@@ -10,11 +10,23 @@
   <%= @challenge.description %>
 </p>
 
-<% @activities.each do |activity| %>
+<% @activities.each_with_index do |activity, i| %>
   <strong>Activity:</strong>
   <%= activity.title %><br />
   <%= activity.description %>
+  <%= @activities_amount[i] %>
 <% end %>
 
+<% @unconfirmed_requests.each do |request| %>
+<br />Request user
+  <%= request.user.name %>
+  <%= link_to 'accept', accept_request_path(request.id) %>
+  <%= link_to 'reject', reject_request_path(request.id) %>
+
+<% end %>
+
+<br />
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', challenges_path %>
+<%# TODO nur anzeigen wenn noch keine request %>
+<%= link_to 'Join', request_membership_challenge_path %>
