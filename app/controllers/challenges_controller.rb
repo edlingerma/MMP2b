@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
   before_action :logged_in, only: [:new, :request_membership]
 
   # GET /challenges
@@ -12,17 +12,20 @@ class ChallengesController < ApplicationController
   # GET /challenges/1.json
   def show
     @activities = @challenge.activities
-    @requests = @challenge.requests
-    @unconfirmed_requests = @requests.select do |request|
-      !request.confirmed
-    end
-
+ 
     @activities_amount = []
     @activities.each_with_index do |activity, i|
       @activities_amount[i] = current_amount(activity)
       @activities_amount[i] /= activity.goal.to_f 
     end
 
+  end
+
+  def show_owner
+    @requests = @challenge.requests
+    @unconfirmed_requests = @requests.select do |request|
+      !request.confirmed
+    end
   end
 
   # GET /challenges/new

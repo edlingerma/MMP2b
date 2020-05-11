@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :challenges do 
     member do 
       get :request_membership
+      get :show_owner
     end
   end
 

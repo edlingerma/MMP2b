@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @challenge.title %>
+</p>
+
+<%= link_to 'Manage members', show_owner_challenge_path %>
+
+<% @unconfirmed_requests.each do |request| %>
+<br />Request user
+  <%= request.user.name %>
+  <%= link_to 'accept', accept_request_path(request.id) %>
+  <%= link_to 'reject', reject_request_path(request.id) %>
+<% end %>
+
+<br />
+<%= link_to 'Edit', edit_challenge_path %>
+<%= button_to 'Delete', @challenge, method: 'delete' %>
+<%= link_to 'Back', challenge_path %>
