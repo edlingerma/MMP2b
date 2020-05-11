@@ -131,6 +131,16 @@ class ChallengesController < ApplicationController
       end
     end
 
+    def is_member
+      @is_member = false
+      @requests = current_user.requests
+      @requests.each do |request|
+        if request.challenge == @challenge && request.confirmed
+          @is_member = true
+        end
+      end
+    end
+
   def logged_in
     unless current_user
       redirect_to signup_path, notice: 'You must be logged in.'

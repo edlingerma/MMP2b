@@ -12,7 +12,10 @@ class EntriesController < ApplicationController
         
         @entry = Entry.new(entry_params)
         @entry.user = current_user
-
+        if !is_member
+          redirect_to @entry.activity.challenge, notice: 'You must be a member of this challenge.'
+          return
+        end
         if @entry.activity.goal < current_amount(@entry.activity) + @entry.amount
           @entry.amount = @entry.activity.goal - current_amount(@entry.activity)
         end
@@ -33,6 +36,16 @@ class EntriesController < ApplicationController
 
     def entry_params
         params.require(:entry).permit(:amount, :activity_id)
+    end
+
+    def is_member
+      @requests = current_user.requests
+      @requests.each do |request|
+        if request.challenge == @entry.activity.challenge && request.confirmed
+          return true
+        end
+      end
+      return false
     end
   
     def logged_in

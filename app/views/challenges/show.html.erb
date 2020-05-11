@@ -16,8 +16,9 @@
   <%= activity.title %><br />
   <%= activity.description %><br />
   <%= @activities_amount[i] %><br />
-  <%= link_to 'Contribute', new_entry_path(activity_id: activity.id) %>
-
+  <% if @is_member %>
+    <%= link_to 'Contribute', new_entry_path(activity_id: activity.id) %>
+  <% end %>
 <% end %>
 
 <% if current_user == @challenge.owner %>
