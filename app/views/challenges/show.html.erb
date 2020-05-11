@@ -19,9 +19,9 @@
   <%= link_to 'Contribute', new_entry_path(activity_id: activity.id) %>
 
 <% end %>
-
+<% if current_user == @challenge.owner %>
 <%= link_to 'Manage members', show_owner_challenge_path %>
-
+<% end %>
 <br />
 
 <%= link_to 'Back', challenges_path %>

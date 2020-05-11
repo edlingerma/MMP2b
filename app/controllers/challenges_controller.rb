@@ -1,6 +1,7 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
   before_action :logged_in, only: [:new, :request_membership]
+  before_action :is_owner, only: [:show_owner]
 
   # GET /challenges
   # GET /challenges.json
@@ -25,6 +26,9 @@ class ChallengesController < ApplicationController
     @requests = @challenge.requests
     @unconfirmed_requests = @requests.select do |request|
       !request.confirmed
+    end
+    @confirmed_requests = @requests.select do |request|
+      request.confirmed && request.user != @challenge.owner
     end
   end
 
@@ -97,6 +101,7 @@ class ChallengesController < ApplicationController
   end
 
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge
@@ -107,6 +112,12 @@ class ChallengesController < ApplicationController
     def challenge_params
       #params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title, :description, :goal, :unit])
       params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title])
+    end
+
+    def is_owner
+      if current_user != @challenge.owner
+        redirect_to challenges_path, notice: 'You must be the owner of this challenge.'
+      end
     end
 
   def logged_in
