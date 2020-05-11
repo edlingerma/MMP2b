@@ -16,6 +16,7 @@ class ChallengesController < ApplicationController
     @challenges = @challenges.select do |challenge|
       @challenge = challenge
       is_member
+      @is_member
     end
   end
 
