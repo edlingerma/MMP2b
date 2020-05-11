@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner, :check_requests, :is_member]
-  before_action :logged_in, only: [:new, :request_membership]
+  before_action :logged_in, only: [:new, :request_membership, :my_challenges]
   before_action :is_owner, only: [:show_owner]
   before_action :check_requests, only: [:show]
   before_action :is_member, only: [:show]
@@ -9,6 +9,14 @@ class ChallengesController < ApplicationController
   # GET /challenges.json
   def index
     @challenges = Challenge.all
+  end
+
+  def my_challenges
+    @challenges = Challenge.all
+    @challenges = @challenges.select do |challenge|
+      @challenge = challenge
+      is_member
+    end
   end
 
   # GET /challenges/1

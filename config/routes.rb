@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       get :request_membership
       get :show_owner
     end
+    collection do
+      get :my_challenges
+    end
   end
 
   resources :requests do 
