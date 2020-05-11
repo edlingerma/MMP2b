@@ -1,7 +1,8 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner, :check_requests]
   before_action :logged_in, only: [:new, :request_membership]
   before_action :is_owner, only: [:show_owner]
+  before_action :check_requests, only: [:show]
 
   # GET /challenges
   # GET /challenges.json
@@ -98,6 +99,16 @@ class ChallengesController < ApplicationController
       end
     end
 
+  end
+
+  def check_requests
+    @request_exists = false
+    @requests = @challenge.requests
+    @requests.each do |request|
+      if request.user == current_user 
+        @request_exists = true
+      end
+    end
   end
 
 
