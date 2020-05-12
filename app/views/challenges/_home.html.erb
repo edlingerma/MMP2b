@@ -1,22 +1,28 @@
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @challenges.each do |challenge| %>
-      <tr>
-        <td><%= challenge.title %></td>
-        <td><%= challenge.description %></td>
-        <td><%= link_to 'Show', challenge %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="blurr">
+
+<div class="columns is-multiline is-centered">
+ <% @challenges.each do |challenge| %>
+    <div class="column is-two-fifths"> 
+    <%# // nächste größe : is-two-fifths und is four-fifths %>
+    <div class="challengeContainer">
+      <div class="challenge_img"> 
+      </div>
+      <div class="challenge_title">
+        <h2><%= challenge.title %></h2>
+        <%= link_to 'Show', challenge %> 
+        <%# #TODO: gesamten block verlinken %>
+      </div>
+      <div class="challenge_descp">
+        <%= challenge.description %>
+      </div>
+      <div class="challenge_button">
+      <button class="button is-primary">Join</button>
+      </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
@@ -39,3 +45,4 @@
   <%= link_to 'My Challenges', my_challenges_challenges_path %>
 <% end %>
 <%= link_to 'Home', root_path %>
+</div>

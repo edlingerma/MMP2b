@@ -1,0 +1,30 @@
+footer{
+    background-color: #012340;
+    color: white;
+    padding: 1.5rem;
+    height:200px;
+    .grid{
+        display: grid;
+        
+        grid-template-columns: auto 30% auto;
+
+        .gird-left{
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .grid-right{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            text-align: center;
+            svg{
+                color: #ffdd57;
+                width: 20%;
+            }
+        }
+    }
+    .highlight{
+        font-weight: bold;
+        color: #ffdd57;
+    }
+    
+}
