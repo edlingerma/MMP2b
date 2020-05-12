@@ -9,13 +9,15 @@
     background-image: url(asset_path("laufen.jpg"));
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;;
+    background-size: cover;
     
     h1{
         text-align: center;
+        color: $primary-color;
     }
 
     &__box{
+        background-color: #fff;
         border-radius: 1.5rem/2rem;
         border: 1px solid black;
         border-radius: $space-medium/2rem;;
