@@ -5,10 +5,15 @@
         <span></span>
                             
         <ul id="menu">
-            <li><a href="/mmp2-lex-mayerhofer/index">Player</a></li>
-            <li><a href="/mmp2-lex-mayerhofer/playlist">Playlist</a></li>
-            <li><a href="/mmp2-lex-mayerhofer/search">Search</a></li>
-            <li><a href="/mmp2-lex-mayerhofer/login">Logout</a></li>
+            <li><%= link_to 'New Challenge', new_challenge_path %></li>
+            <li><%= link_to 'Home', root_path %></li>
+            <% if current_user %>
+                <li><%= link_to 'My Challenges', my_challenges_challenges_path %></li>
+                <li><%= link_to "Log Out", logout_path %></li>
+            <% else %>
+                <li><%= link_to "Sign Up", signup_path %> or
+                <%= link_to "Log In", login_path %></li>
+            <% end %>
         </ul>
 </div>
 <header class="header">
@@ -22,7 +27,6 @@
                 <div class="header_item"><%= link_to "Sign Up", signup_path %> or
                 <%= link_to "Log In", login_path %></div>
             <% end %> 
-        </ul>
 </header>
 
 <% #TODO Refactor mutiple files%>

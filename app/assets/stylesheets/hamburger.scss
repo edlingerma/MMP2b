@@ -12,15 +12,15 @@
 #menuToggle a
 {
   text-decoration: none;
-  color: #012340;
+  color:  #ffdd57;
   
   transition: all 1.5s ease;
-  border: 0.3rem solid #ffdd57;
+  border: 0.3rem solid #012340;
 }
 
 #menuToggle a:hover
 {
-  border-color: transparent transparent #012340 transparent;
+  border-color: transparent transparent #ffdd57 transparent;
 }
 
 
@@ -77,7 +77,7 @@
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #012340;
+  background: #ffdd57;
 }
 
 #menuToggle input:checked ~ span:nth-last-child(3)
@@ -95,7 +95,7 @@
   position: absolute;
   width: 100vw;
   padding: 28vh 0;
-  background: #ffdd57;
+  background: #012340;
   height: 110vh;
 	list-style-type: none;
 	-webkit-font-smoothing: antialiased;
