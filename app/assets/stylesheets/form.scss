@@ -6,10 +6,16 @@
     display: flex;
     align-items: center;
     align-content: center;
-    background-image: url(asset_path("laufen.jpg"));
+    background-image: url("laufen_1920.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media screen and (max-width: 960px) {
+      & {
+        background-image: url("laufen_960.jpg");
+      }
+    }
     
     h1{
         text-align: center;

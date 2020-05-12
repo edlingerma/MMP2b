@@ -3,11 +3,12 @@
 .hero{
     background-image: url("hero_2880.jpg");
     background-position: center;
-    background-size: 100%;
     img{
         max-width: 100%;
     }
     min-height: 45vh;
+    background-repeat: no-repeat;
+  background-size: cover;
 }
 @media screen and (max-width: 1440px) {
   .hero {
