@@ -8,6 +8,9 @@
   </div>
   <div>
     <% if is_owner %>
+      <% if @num_requests > 0 %>
+        <span class="num_requests"><%= @num_requests %></span>
+      <% end %>
       <%= button_to 'Manage Challenge', show_owner_challenge_path, method: 'get', class: 'button is-warning is-outlined button-transition' %>
     <% end %>
     <% unless is_candidate %>

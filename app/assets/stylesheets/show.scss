@@ -53,6 +53,21 @@
   margin-bottom: 3rem;
 }
 
+.num_requests {
+  background-color: #FFA500;
+  border-radius: 100%;
+  position: relative;
+  left: 155px;
+  top: 10px;
+  z-index: 2;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 1.2;
+  user-select: none;
+}
+
 .description {
   // TODO set variable
   padding-bottom: 0.75rem;
