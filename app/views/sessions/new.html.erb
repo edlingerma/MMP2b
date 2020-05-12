@@ -1,39 +1,28 @@
 <div class="form">
-
   <div class="form__box">
-  <div class="form__box--sign">
-
-    <h1 class="title">Login</h1>
-    <p id="alert"><%= alert %></p>
-
-
-
-      <%= form_tag sessions_path do |form| %>
-        <div class="field">
-          <%= label_tag :username, "Username", class: "label" %>
-          <%= text_field_tag :username, "", class: "input", type: "text" %>
-        </div>  
-        
-        <div class="field">
-          <%= label_tag :password, "Password", class: "label" %>
-          <%= password_field_tag :password, "", class:"input", type:"password" %>
-        </div>  
-        
-        <div class="field is-grouped is-grouped-centered">
-          <div class="actions">
-              <%= submit_tag "Login", method: "get", class: "button is-primary" %>
+    <div class="form__box--sign">
+      <h1 class="title">Login</h1>
+      <p id="alert"><%= alert %></p>
+        <%= form_tag sessions_path do |form| %>
+          <div class="field">
+            <%= label_tag :username, "Username", class: "label" %>
+            <%= text_field_tag :username, "", class: "input", type: "text" %>
           </div>
+
+          <div class="field">
+            <%= label_tag :password, "Password", class: "label" %>
+            <%= password_field_tag :password, "", class:"input", type:"password" %>
+          </div>
+
+          <div class="field is-grouped is-grouped-centered">
+            <div class="actions">
+                <%= submit_tag "Login", method: "get", class: "button is-primary" %>
+            </div>
+          </div>
+        <div class= "has-text-centered" >
+          or <%= link_to 'Sign Up', signup_path %>
         </div>
-
-
-      <% end %>
-
-  <div>
-  <div>
-
-
-  <div class= "has-text-centered" >
-    or <%= link_to 'Sign Up', signup_path %>
+        <% end %>
+    </div>
   </div>
-
 </div>
