@@ -14,12 +14,12 @@
 
   <div class="field">
     <%= form.label :title, class: "label" %>
-    <%= form.text_field :title, method: "get", class: "input", type: "text" %>
+    <%= form.text_field :title, placeholder: 'Title',  method: "get", class: "input", type: "text" %>
   </div>
 
   <div class="field">
     <%= form.label :description, class: "label" %>
-    <%= form.text_field :description, method: "get", class: "textarea", type: "text" %>
+    <%= form.text_field :description, placeholder: 'Description', method: "get", class: "textarea", type: "text" %>
   </div>
 
   <h2 class="subtitle">Activities</h2>
@@ -35,14 +35,13 @@
     <% end %>
 
     <div data-target="nested-form.add_item">
-      <%= link_to "Add Activity", "#", data: { action: "nested-form#add_association" } %>
+      <%= link_to "Add Activity", "#", data: { action: "nested-form#add_association" }, class: "button is-primary" %>
     </div>
   </div>
 
   <div class="field is-grouped is-grouped-centered">
       <div class="actions">
-          <%= submit_tag "Create Challenge", method: "get", class: "button is-primary"  %>
-        <%# <%= form.submit %>
+          <%= submit_tag "Create Challenge", method: "get", class: "button is-primary is-large"  %>
       </div>
   </div>
 

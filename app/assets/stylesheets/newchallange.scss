@@ -1,0 +1,29 @@
+.newchallange{
+    padding: 3rem;
+
+    h2{
+        padding-top: 3rem;
+    }
+
+
+    &__activity{
+
+        .form-group{
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            padding: 1.5rem 0;
+            
+        }
+
+        .remove {
+            justify-self: center;
+            align-self: center;
+        }
+
+        
+
+        
+    }
+
+    
+}
