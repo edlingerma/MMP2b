@@ -1,25 +1,21 @@
 .hero{
-    background-image: url(asset_path("brown-and-white-track-field-163444.jpg"));
+    background-image: url("hero_2880.jpg");
     background-position: center;
     background-size: 100%;
     img{
         max-width: 100%;
     }
-    text-align: center;
     min-height: 45vh;
-    color: #ffdd57;
-    display: flex;
-    align-items: center;
-    justify-content: center !important;
-    flex-direction: column;
-    text-shadow: 4px 2px 3px rgba(0,0,0,0.78);
-
-    h1{
-        font-size: 4rem;
+}
+@media screen and (max-width: 1440px) {
+  .hero {
+    background-image: url("hero_1440.jpg");
+  }
+  @media screen and (max-width: 720px) {
+    .hero {
+      background-image: url("hero_720.jpg");
     }
-    h2{
-        font-size:2rem;
-    }
+  }
 }
 .overview{
     font-size: 2rem;

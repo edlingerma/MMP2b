@@ -81,21 +81,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.hero {
-  background-image: url("hero_2880.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 40vh;
-}
-
-@media screen and (max-width: 1440px) {
-  .hero {
-    background-image: url("hero_1440.jpg");
-  }
-  @media screen and (max-width: 720px) {
-    .hero {
-      background-image: url("hero_720.jpg");
-    }
-  }
-}
