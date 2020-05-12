@@ -27,6 +27,12 @@ class ChallengesController < ApplicationController
       @activities_amount[i] = current_amount(activity)
       @activities_amount[i] /= activity.goal.to_f
     end
+    
+    # Get amount of candidates for challenge to notifiy owner
+    requests = @challenge.requests.select do |request|
+      request.confirmed.nil?
+    end
+    @num_requests = requests.length
   end
 
   def show_owner
@@ -34,8 +40,8 @@ class ChallengesController < ApplicationController
       redirect_to @challenge, notice: 'You must be the owner of this challenge.'
     end
     @requests = @challenge.requests
-    @unconfirmed_requests = @requests.select do |request|
-      !request.confirmed
+    @unconfirmed_requests = @requests.reject do |request|
+      request.confirmed
     end
     @confirmed_requests = @requests.select do |request|
       request.confirmed && request.user != @challenge.owner
@@ -127,8 +133,7 @@ class ChallengesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def challenge_params
-    # params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title, :description, :goal, :unit])
-    params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title])
+    params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title, :description, :goal, :unit])
   end
 
   def is_owner
