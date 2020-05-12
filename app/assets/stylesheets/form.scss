@@ -5,21 +5,22 @@
 
 .form{
     height: 100vh;
-
     display: flex;
     align-items: center;
     align-content: center;
 
     &__box{
-        background-color: rgb(144, 144, 144);
-        border-radius: 10%;
+        // background-color: rgb(144, 144, 144);
+        border: 1px solid black;
+        // border-radius: 10%;
+        border-radius: 1.5rem/2rem;;
         padding: 3rem;
         margin: 0 auto;
 
         &--sign{
-            width: 30%;
+            // width: 30%;
             // TODO Responsive
-            min-width: 400px;
+            // max-width: 50%;
         }
 
         &--contribute{
