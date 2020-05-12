@@ -12,7 +12,7 @@
 
     &__box{
         background-color: rgb(144, 144, 144);
-        border-radius: 5%;
+        border-radius: 10%;
         padding: 3rem;
         margin: 0 auto;
 
@@ -22,8 +22,14 @@
             min-width: 400px;
         }
 
-        &--newchallange{
-            width: 100%;
+        &--contribute{
+            text-align: center;
+            align-items: center;
+
+            .field.has-addons {
+                margin: 0 20px;
+                justify-content: center;
+            }
         }
     }
 }
