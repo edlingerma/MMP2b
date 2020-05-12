@@ -1,3 +1,5 @@
+@import "variables";
+
 .hero{
     background-image: url("hero_2880.jpg");
     background-position: center;
@@ -19,9 +21,9 @@
 }
 .overview{
     font-size: 2rem;
-    background-color: #012340;
+    background-color: $primary-color;
     color: white;
     padding: 1rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: $space-small;
 
 }

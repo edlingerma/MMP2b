@@ -1,8 +1,7 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "variables";
+
 .challengeContainer{
-    margin: 1.5rem;
+    margin: $space-medium;
     display: grid;
     grid-template-columns: auto 15% 20%;
     grid-template-rows: 20vh 7vh;
@@ -33,7 +32,6 @@
     background-color: #49A69C;
     object-fit: cover;
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b9/Football_iu_1996.jpg");
-    // #TODO: Test with images
   background-repeat: no-repeat;
   background-size:100%;
   background-position: center;
@@ -45,7 +43,7 @@
   
   .challenge_title{
     background-color: #49A69C;
-    color: #ffdd57 !important;
+    color: $secondary-color !important;
     grid-row-start:1;
     grid-column-start:2;
     grid-column-end: 4;

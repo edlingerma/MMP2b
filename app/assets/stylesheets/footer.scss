@@ -1,7 +1,9 @@
+@import "variables";
+
 footer{
-    background-color: #012340;
-    color: white;
-    padding: 1.5rem;
+    background-color: $primary-color;
+    color: #FFFFFF;
+    padding: $space-medium;
     //height:200px;
     .grid{
         display: grid;
@@ -17,14 +19,14 @@ footer{
             grid-column-end: 4;
             text-align: center;
             svg{
-                color: #ffdd57;
+                color: $secondary-color;
                 width: 20%;
             }
         }
     }
     .highlight{
         font-weight: bold;
-        color: #ffdd57;
+        color: $secondary-color;
     }
     
 }

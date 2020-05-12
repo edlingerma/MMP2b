@@ -1,3 +1,5 @@
+@import "variables";
+
 .header{
     top: 0;
     z-index: 2;
@@ -8,7 +10,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #012340;
+    background-color: $primary-color;
     color: snow;
     padding: 2rem;
     &__list {
@@ -20,19 +22,19 @@
             text-decoration: none;
             color: inherit;
             padding: 0.35rem;
-            border: 3px solid #012340;
+            border: 3px solid $primary-color;
             border-radius: 25px;
             transition: all 0.7s ease;
             
         }
         a:hover{
-            color: #ffdd57;
-            border-color: #ffdd57;
+            color: $secondary-color;
+            border-color: $secondary-color;
         }
     }
     .highlight{
         font-weight: bold;
-        color: #ffdd57;
+        color: $secondary-color;
     }
 }
 
