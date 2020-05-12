@@ -18,8 +18,12 @@
             color: inherit;
             a:hover{
                 // TODO: find link hover color
-                color: yellow;
+                color: #ffdd57;
             }
         }
+    }
+    .highlight{
+        font-weight: bold;
+        color: #ffdd57;
     }
 }

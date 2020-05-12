@@ -1,3 +1,51 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.challengeContainer{
+    margin: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 15% 20%;
+    grid-template-rows: 20vh 7vh;
+    border: medium solid green;
+    border-radius: 3%;
+    overflow: hidden;
+    
+    h2{
+        font-size: 30px;
+    }
+  }
+  .challenge_img{
+    object-fit: cover;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b9/Football_iu_1996.jpg");
+    // #TODO: Test with images
+  background-repeat: no-repeat;
+  background-size:100%;
+  background-position: center;
+    img{
+    max-width: 100%;
+  }
+  }
+  
+  .challenge_title{
+    background-color: #49A69C;
+    color: white;
+    grid-row-start:1;
+    grid-column-start:2;
+    grid-column-end: 4;
+    align-self: stretch;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .challenge_descp{
+    //background-color: green;
+    grid-column-start:1;
+    grid-column-end:3;
+    overflow: hidden;
+  }
+  .challenge_button{
+    align-self: center;
+    text-align:center;
+  }
+  
+  
