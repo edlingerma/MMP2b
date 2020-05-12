@@ -1,12 +1,12 @@
 <%= javascript_pack_tag 'barChart' %>
 <p id="notice"><%= notice %></p>
 <section class="hero"></section>
-<section class="show-header">
-  <div>
+<section class="show-header columns is-centered is-multiline is-vcentered">
+  <div class="column">
     <h1 class="title"><%= @challenge.title %></h1>
     <h2 class="subtitle"><%= @challenge.description %></h2>
   </div>
-  <div>
+  <div class="column">
     <% if is_owner %>
       <% if @num_requests > 0 %>
         <span class="num_requests"><%= @num_requests %></span>

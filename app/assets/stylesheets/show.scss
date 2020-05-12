@@ -10,18 +10,22 @@
   // TODO set variable
   padding: 1.5rem;
   margin: 1.5rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+}
+
+.show_owner-container {
+  // TODO set variable
+  padding: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .show-header {
   // TODO set variable
   background-color: #012340;
   padding: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+
+  .column {
+    text-align: center;
+  }
 
   .title {
     // TODO set variable
@@ -57,7 +61,7 @@
   background-color: #FFA500;
   border-radius: 100%;
   position: relative;
-  left: 155px;
+  left: calc(50% + 73px);
   top: 10px;
   z-index: 2;
   display: block;
