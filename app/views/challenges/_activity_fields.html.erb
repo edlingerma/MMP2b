@@ -1,12 +1,44 @@
+<div class="newchallange__activity">
+
 <div class='nested-fields'>
   <div class='form-group'>
     <%= form.hidden_field :_destroy %>
-    <%= form.text_field :title, placeholder: 'Title', class: 'form-control' %>
-    <%= form.text_field :description, placeholder: 'Description', class: 'form-control' %>
-    <%= form.number_field :goal, placeholder: 'Goal', class: 'form-control' %>
-    <%= form.text_field :unit, placeholder: 'km', class: 'form-control' %>
-    <small>
-      <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %>
-    </small>
+
+    <div>
+      <div class="field">
+          <%= form.label :title, class: "label" %>
+          <%= form.text_field :title, placeholder: 'Activity title', class: 'form-control', method: "get", class: "input", type: "text"  %>
+      </div>
+      <div class="field">
+          <%= form.label :description, class: "label" %>
+          <%# <textarea class="textarea" placeholder="e.g. Hello world"></textarea> %>
+          <%= form.text_area :description, placeholder: 'Activity description', class: 'form-control', method: "get", class: "textarea", type: "text"  %>
+      </div>
+      
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <%= form.label :goal, class: "label" %>
+            <%= form.number_field :goal, placeholder: 'Goal', class: 'form-control', method: "get", class: "input", type: "text"  %>
+          </div>
+        </div>
+        <div class="column">
+          <div class="field">
+            <%= form.label :unit, class: "label" %>    
+            <%= form.text_field :unit, placeholder: 'p.e. km', class: 'form-control', method: "get", class: "input", type: "text"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="remove">
+      <%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" }, class: "button is-danger is-outlined" %>
+    </div>
+
   </div>
+      <hr>
+
+</div>
+
+
 </div>

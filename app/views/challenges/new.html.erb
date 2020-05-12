@@ -1,5 +1,7 @@
-<h1>New Challenge</h1>
+<div class="newchallange">
 
-<%= render 'form', challenge: @challenge %>
+    <h1 class="title">New Challenge</h1>
 
-<%= link_to 'Back', challenges_path %>
+    <%= render 'form', challenge: @challenge, buttonText: "Create" %>
+
+</div>

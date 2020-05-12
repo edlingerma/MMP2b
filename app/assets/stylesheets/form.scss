@@ -1,0 +1,36 @@
+// paading 1.5
+// 3
+// 0.75
+
+
+.form{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    &__box{
+        // background-color: rgb(144, 144, 144);
+        border: 1px solid black;
+        // border-radius: 10%;
+        border-radius: 1.5rem/2rem;;
+        padding: 3rem;
+        margin: 0 auto;
+
+        &--sign{
+            // width: 30%;
+            // TODO Responsive
+            // max-width: 50%;
+        }
+
+        &--contribute{
+            text-align: center;
+            align-items: center;
+
+            .field.has-addons {
+                margin: 0 20px;
+                justify-content: center;
+            }
+        }
+    }
+}
