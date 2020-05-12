@@ -83,19 +83,19 @@
 }
 
 .hero {
-  background-image: url("hero-3000.jpg");
+  background-image: url("hero_2880.jpg");
   background-size: cover;
   background-position: center;
   height: 40vh;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1440px) {
   .hero {
-    background-image: url("hero-1500.jpg");
+    background-image: url("hero_1440.jpg");
   }
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 720px) {
     .hero {
-      background-image: url("hero-750.jpg");
+      background-image: url("hero_720.jpg");
     }
   }
 }
