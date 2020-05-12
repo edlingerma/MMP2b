@@ -35,3 +35,11 @@
         color: #ffdd57;
     }
 }
+
+@media screen and (max-width: 750px) {
+    .header{
+        &_item{
+            display: none;
+        }
+    }
+}
