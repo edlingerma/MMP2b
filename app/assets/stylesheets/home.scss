@@ -53,6 +53,10 @@
     background-size:100%;
     background-position: center;
     height: 100%;
+    h2{
+      padding-top: $space-medium;
+      color: $secondary-color;
+    }
   }
   
   .challenge_descp{
