@@ -127,8 +127,7 @@ class ChallengesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def challenge_params
-    # params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title, :description, :goal, :unit])
-    params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title])
+    params.require(:challenge).permit(:title, :description, activities_attributes: [:_destroy, :id, :title, :description, :goal, :unit])
   end
 
   def is_owner
