@@ -21,15 +21,17 @@
         a{
             text-decoration: none;
             color: inherit;
-            padding: 0.35rem;
+            padding: 0.15rem;
             border: 3px solid $primary-color;
-            border-radius: 25px;
+            border-radius: 3px;
             transition: all 0.7s ease;
             
         }
         a:hover{
+            //text-decoration: underline;
             color: $secondary-color;
-            border-color: $secondary-color;
+            //border-color: $secondary-color;
+            border-color: $primary-color $primary-color $secondary-color $primary-color;
         }
     }
     .highlight{
