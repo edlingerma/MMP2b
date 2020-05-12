@@ -1,11 +1,3 @@
-// paading 1.5
-// 3
-// 0.75
-// Photo by lucas Favre on Unsplash     - laufen
-// Photo by svklimkin on Unsplash       -karate2
-// Photo by Fabien Moliné on Unsplash   -sundown
-
-
 .form{
     height: 90vh;
     display: flex;
@@ -20,16 +12,13 @@
         text-align: center;
     }
 
-
     &__box{
         background-color:rgba(255, 255, 255, 1);
         border-radius: 1.5rem/2rem;
-        padding: 3rem 6rem;
+        padding: 3rem;
         margin: 0 auto;
-
-        &--sign{
-            // TODO Responsive
-        }
+        width: 30%;
+        min-width: 450px;
 
         &--contribute{
             text-align: center;
@@ -38,6 +27,16 @@
             .field.has-addons {
                 margin: 0 20px;
                 justify-content: center;
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .form {
+            &__box{
+                width: 100%;
+                margin: 0 5%;
+                min-width: 0;
             }
         }
     }
