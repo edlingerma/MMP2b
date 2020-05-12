@@ -12,9 +12,14 @@
         list-style-type: none;
       }
     &_item{
+        font-size: 20px;
         a{
             text-decoration: none;
             color: inherit;
+            a:hover{
+                // TODO: find link hover color
+                color: yellow;
+            }
         }
     }
 }
