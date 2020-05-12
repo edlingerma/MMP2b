@@ -1,48 +1,25 @@
-* {
-  box-sizing: border-box;
-}
+@import "variables";
 
 .button-transition {
   transition: 0.2s ease-in;
 }
 
 .show-container {
-  // TODO set variable
-  padding: 1.5rem;
-  margin: 1.5rem;
+  padding: $space-medium;
+  margin: $space-medium;
 }
 
 .show_owner-container {
-  // TODO set variable
-  padding: 1.5rem 0;
-  margin: 1.5rem 0;
+  padding: $space-medium 0;
+  margin: $space-medium 0;
 }
 
 .show-header {
-  // TODO set variable
-  background-color: #012340;
-  padding: 1.5rem;
+  background-color: $primary-color;
+  padding: $space-medium;
 
   .column {
     text-align: center;
-  }
-
-  .title {
-    // TODO set variable
-    color: #FFFFFF;
-  }
-
-  .subtitle {
-    // TODO set variable
-    color: #FFFFFF;
-  }
-
-  // TODO einheitlicher Link
-  a {
-    color: #FFFFFF;
-  }
-  a:hover {
-    color: #FFFFFF;
   }
 }
 
@@ -54,7 +31,7 @@
 
 .activity {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: $space-large;
 }
 
 .num_requests {
@@ -73,29 +50,10 @@
 }
 
 .description {
-  // TODO set variable
-  padding-bottom: 0.75rem;
+  padding-bottom: $space-small;
 }
 
 .progressbar {
   display: flex;
   justify-content: space-between;
-}
-
-.hero {
-  background-image: url("hero-3000.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 40vh;
-}
-
-@media screen and (max-width: 1500px) {
-  .hero {
-    background-image: url("hero-1500.jpg");
-  }
-  @media screen and (max-width: 750px) {
-    .hero {
-      background-image: url("hero-750.jpg");
-    }
-  }
 }

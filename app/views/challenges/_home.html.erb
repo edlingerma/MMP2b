@@ -3,42 +3,33 @@
 
 <div class="columns is-multiline is-centered">
  <% @challenges.each do |challenge| %>
+ 
     <div class="column is-two-fifths"> 
+    
     <%# // nächste größe : is-two-fifths und is four-fifths %>
+    
     <div class="challengeContainer">
-      <div class="challenge_img"> 
+    <%= link_to(challenge, class: "challenge_img")  do%>  
+      <div class="challenge_img">
       </div>
-      <div class="challenge_title">
-        <h2><%= challenge.title %></h2>
-        <%= link_to 'Show', challenge %> 
-        <%# #TODO: gesamten block verlinken %>
-      </div>
-      <div class="challenge_descp">
+    <% end%>
+     <%= link_to(challenge, class: "challenge_title") do%>
+        <h2 class="subtitle"><%= challenge.title %></h2>
+     <% end %>
+     <%= link_to(challenge, class: "challenge_descp") do%>
         <%= challenge.description %>
+     <% end%>
+      <%= link_to(challenge, class: "challenge_button") do%>
+          <p>...Learn More</p>
+      <% end%>
       </div>
-      <div class="challenge_button">
-      <button class="button is-primary">Join</button>
-      </div>
-      </div>
+      
     </div>
+    
   <% end %>
 </div>
 
 <br>
-
-<% if current_user %>
-  Logged in as <%= current_user.username %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> or
-  <%= link_to "Log In", login_path %> or
-  <%= link_to '/auth/facebook' do %>
-    <button class="loginBtn loginBtn--facebook">
-      Login with Facebook
-    </button>
-  <% end  %>
-<% end %>
-<br />
 
 <%= link_to 'New Challenge', new_challenge_path %>
 <% if current_user %>
