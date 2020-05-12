@@ -1,13 +1,15 @@
+@import "variables";
+
 .newchallange{
-    padding: 3rem;
+    padding: $space-large;
 
     h2{
-        padding-top: 3rem;
+        padding-top: $space-large;
     }
 
     // Button Create
     .actions{
-        padding-top: 3rem;
+        padding-top: $space-large;
     }
 
     &__activity{
@@ -15,7 +17,7 @@
         .form-group{
             display: grid;
             grid-template-columns: 4fr 1fr;
-            padding: 1.5rem 0;
+            padding: $space-medium 0;
         }
 
         .remove {
