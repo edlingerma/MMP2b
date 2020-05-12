@@ -13,16 +13,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, method: "get", class: "input", type: "text" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.label :description, class: "label" %>
+    <%= form.text_field :description, method: "get", class: "textarea", type: "text" %>
   </div>
 
-  <h1>Activities</h1>
+  <h2 class="subtitle">Activities</h2>
   <div data-controller="nested-form">
     <template data-target='nested-form.template'>
       <%= form.fields_for :activities, Activity.new, child_index: 'TEMPLATE_RECORD' do |activity| %>
@@ -39,7 +39,11 @@
     </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field is-grouped is-grouped-centered">
+      <div class="actions">
+          <%= submit_tag "Create Challenge", method: "get", class: "button is-primary"  %>
+        <%# <%= form.submit %>
+      </div>
   </div>
+
 <% end %>

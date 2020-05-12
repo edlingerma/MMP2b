@@ -1,0 +1,29 @@
+// paading 1.5
+// 3
+// 0.75
+
+
+.form{
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    &__box{
+        background-color: rgb(144, 144, 144);
+        border-radius: 5%;
+        padding: 3rem;
+        margin: 0 auto;
+
+        &--sign{
+            width: 30%;
+            // TODO Responsive
+            min-width: 400px;
+        }
+
+        &--newchallange{
+            width: 100%;
+        }
+    }
+}
