@@ -1,29 +1,30 @@
+
 @import "variables";
 
-// paading 1.5
-// 3
-// 0.75
-
-
 .form{
-    height: 100vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     align-content: center;
+    background-image: url(asset_path("laufen.jpg"));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    h1{
+        text-align: center;
+        color: $primary-color;
+    }
 
     &__box{
-        // background-color: rgb(144, 144, 144);
+        background-color: #fff;
+        border-radius: 1.5rem/2rem;
         border: 1px solid black;
-        // border-radius: 10%;
         border-radius: $space-medium/2rem;;
         padding: $space-large;
         margin: 0 auto;
-
-        &--sign{
-            // width: 30%;
-            // TODO Responsive
-            // max-width: 50%;
-        }
+        width: 30%;
+        min-width: 450px;
 
         &--contribute{
             text-align: center;
@@ -32,6 +33,16 @@
             .field.has-addons {
                 margin: 0 20px;
                 justify-content: center;
+            }
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .form {
+            &__box{
+                width: 100%;
+                margin: 0 5%;
+                min-width: 0;
             }
         }
     }
