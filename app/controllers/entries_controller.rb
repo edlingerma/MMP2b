@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.user = current_user
-    if !is_member
+    unless is_member
       redirect_to @entry.activity.challenge, notice: 'You must be a member of this challenge.'
       return
     end
@@ -25,7 +25,7 @@ class EntriesController < ApplicationController
     end
   end
 
-    private
+  private
 
   def entry_params
     params.require(:entry).permit(:amount, :activity_id)
@@ -40,4 +40,4 @@ class EntriesController < ApplicationController
     end
     false
   end
-  end
+end
