@@ -6,4 +6,5 @@ class Challenge < ApplicationRecord
   accepts_nested_attributes_for :activities, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
   validates :title, :owner, presence: true
   validates_length_of :description, maximum: 240;
+  has_one_attached :avatar
 end

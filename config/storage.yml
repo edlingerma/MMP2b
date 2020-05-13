@@ -22,11 +22,11 @@ local:
 #   bucket: your_own_bucket
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
-# microsoft:
-#   service: AzureStorage
-#   storage_account_name: your_account_name
-#   storage_access_key: <%= Rails.application.credentials.dig(:azure_storage, :storage_access_key) %>
-#   container: your_container_name
+microsoft:
+  service: AzureStorage
+  storage_account_name: remoteathlete
+  storage_access_key: TBuPdCQR15O5tBPeHe1WRDdPNNp8ul3b2GTShuXUqCuiSFYO6WJ3T5+EGIC2UsBicf/8evR+g5SGJqjSpmdwgQ==
+  container: container
 
 # mirror:
 #   service: Mirror
