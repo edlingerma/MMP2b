@@ -7,7 +7,18 @@
     <div>
       <div class="field">
           <%= form.label :title, class: "label" %>
-          <%= form.text_field :title, placeholder: 'Activity title', class: 'form-control', method: "get", class: "input", type: "text"  %>
+          <%= form.text_field :title, placeholder: 'Activity title', class: 'form-control', method: "get", class: "input", type: "text", data: {autocomplete_source: challenges_path}  %>
+        <datalist id="activities">
+
+                <option value="U.S.">
+                <option value="France">
+                <option value="China">
+                <option value="Cambodia">
+                <option value="Chile">
+                <option value="Canada">
+                <option value="Poland">
+
+              </datalist>
       </div>
       <div class="field">
           <%= form.label :description, class: "label" %>
