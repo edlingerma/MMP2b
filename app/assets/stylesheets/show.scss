@@ -32,6 +32,9 @@
 .activity {
   text-align: center;
   margin-bottom: $space-large;
+  .subtitle{
+    color: #2E2F30;
+  }
 }
 
 .num_requests {
@@ -56,4 +59,7 @@
 .progressbar {
   display: flex;
   justify-content: space-between;
+  svg{
+    max-width: 90vw;
+}
 }
