@@ -75,3 +75,28 @@ color: #FFF;
     padding-top: 10vh;
     min-height: calc(100vh - 200px);
 }
+
+// notification
+.notice {
+    margin: 0;
+    position: absolute;
+    width:100%;
+    animation: slide;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+    0% {
+        /* Eigenschaften zum Beginn der Animation */
+        top: 0vh;
+    }
+    20%, 80% {
+        /* Eigenschaften von 1/4 bis 3/4 der Animation */
+        top: 10vh;
+    }
+    100% {  
+        /* Eigenschaften zum Ende der Animation */   
+        top: 0vh;
+    }
+}
