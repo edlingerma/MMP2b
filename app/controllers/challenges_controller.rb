@@ -67,7 +67,7 @@ class ChallengesController < ApplicationController
 
   def destroy
     @challenge.destroy
-    redirect_to challenges_url, notice: 'Challenge was successfully destroyed.'
+    redirect_to challenges_url, notice: 'Challenge was successfully deleted.'
   end
 
   def request_membership
@@ -76,7 +76,7 @@ class ChallengesController < ApplicationController
     if @request
       redirect_to @challenge, notice: 'Request was successfully created.'
     else
-      redirect_to @challenge, notice: 'Request was NOT successfully created.'
+      redirect_to @challenge, notice: 'Oops, there was an error with your request. Please try again.'
     end
   end
 
