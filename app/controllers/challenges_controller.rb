@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
-  before_action :logged_in, only: [:new, :request_membership, :my_challenges, :is_member, :is_owner]
+  before_action :logged_in, only: [:new, :request_membership, :my_challenges]
   helper_method :is_owner, :is_member, :is_candidate
 
   def index
@@ -29,20 +29,8 @@ class ChallengesController < ApplicationController
     unless is_owner
       redirect_to @challenge, notice: 'You must be the owner of this challenge.'
     end
-    @requests = @challenge.requests
-    @unconfirmed_requests = @requests.reject(&:confirmed)
 
-    @confirmed_requests = @requests.select do |request|
-      request.confirmed && request.user != @challenge.owner
-    end
-
-    @entries = []
-    activities = @challenge.activities
-    activities.each do |activity|
-      @entries.concat(activity.entries)
-    end
-    @entries = @entries.sort_by(&:created_at)
-    @entries.reverse!
+    @entries = @challenge.entries.sort_by(&:created_at).reverse!
   end
 
   def new

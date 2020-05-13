@@ -14,13 +14,4 @@ class ApplicationController < ActionController::Base
       redirect_to signup_path, notice: 'You must be logged in.'
     end
   end
-
-  def current_amount(activity)
-    activities_amount = 0
-    entries = activity.entries
-    entries.each do |entry|
-      activities_amount += entry.amount
-    end
-    activities_amount
-  end
 end
