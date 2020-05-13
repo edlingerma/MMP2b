@@ -32,7 +32,7 @@ class ChallengesController < ApplicationController
 
   def show_owner
     unless is_owner
-      redirect_to @challenge, notice: 'You must be the owner of this challenge.'
+      redirect_to @challenge, warning: 'You must be the owner of this challenge.'
     end
 
     @entries = @challenge.entries.sort_by(&:created_at).reverse!
@@ -51,7 +51,7 @@ class ChallengesController < ApplicationController
     Request.create(user: current_user, challenge: @challenge, confirmed: true)
 
     if @challenge.save
-      redirect_to @challenge, notice: 'Challenge was successfully created.'
+      redirect_to @challenge, success: 'Challenge was successfully created.'
     else
       render :new
     end
@@ -59,7 +59,7 @@ class ChallengesController < ApplicationController
 
   def update
     if @challenge.update(challenge_params)
-      redirect_to @challenge, notice: 'Challenge was successfully updated.'
+      redirect_to @challenge, success: 'Challenge was successfully updated.'
     else
       render :edit
     end
@@ -67,16 +67,16 @@ class ChallengesController < ApplicationController
 
   def destroy
     @challenge.destroy
-    redirect_to challenges_url, notice: 'Challenge was successfully deleted.'
+    redirect_to challenges_url, success: 'Challenge was successfully deleted.'
   end
 
   def request_membership
     @request = Request.create(challenge: @challenge, user: current_user)
 
     if @request
-      redirect_to @challenge, notice: 'Request was successfully created.'
+      redirect_to @challenge, success: 'Request was successfully created.'
     else
-      redirect_to @challenge, notice: 'Oops, there was an error with your request. Please try again.'
+      redirect_to @challenge, error: 'Oops, there was an error with your request. Please try again.'
     end
   end
 

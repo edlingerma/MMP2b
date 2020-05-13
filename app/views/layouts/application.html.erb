@@ -16,9 +16,24 @@
   <body>
   <%= render "challenges/header" %>
   
-  <% if notice %>
+  <% if info %>
     <div class="notification is-info notice">
-      <p id="notice"><%= notice %></p>
+      <p id="info"><%= info %></p>
+    </div>
+  <%end%>
+  <% if error %>
+    <div class="notification is-danger notice">
+      <p id="error"><%= error %></p>
+    </div>
+  <%end%>
+  <% if warning %>
+    <div class="notification is-warning notice">
+      <p id="warning"><%= warning %></p>
+    </div>
+  <%end%>
+  <% if success %>
+    <div class="notification is-success notice">
+      <p id="success"><%= success %></p>
     </div>
   <%end%>
 

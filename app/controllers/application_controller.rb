@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :current_amount
+  add_flash_types :info, :error, :warning, :success
 
   def current_user
     if session[:user_id]
@@ -11,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in
     unless current_user
-      redirect_to signup_path, notice: 'You must be logged in.'
+      redirect_to signup_path, warning: 'You must be logged in.'
     end
   end
 end
