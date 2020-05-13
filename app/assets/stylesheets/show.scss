@@ -28,13 +28,22 @@
 .activities {
   align-items: center;
   flex-direction: column;
+
+  &__col {
+    padding-bottom: $space-large;
+    padding-top: $space-large;
+  }
 }
 
 .activity {
   text-align: center;
-  margin-bottom: $space-large;
+
   .subtitle{
     color: #2E2F30;
+  }
+
+  input {
+    margin-top: $space-medium;
   }
 }
 
@@ -54,11 +63,9 @@
 }
 
 .description {
-  padding: $space-small;
   @media screen and (max-width: 720px){
     word-wrap: break-word;
   }
-  
 }
 
 .progressbar {

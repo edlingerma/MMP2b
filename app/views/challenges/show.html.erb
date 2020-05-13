@@ -19,7 +19,7 @@
 <section class="show-container">
   <section class="activities">
     <% @activities.each_with_index do |activity, i| %>
-      <article class="columns">
+      <article class="columns activities__col">
         <div class="column is-one-fifth activity">
           <h3 class="subtitle"><%= activity.title %></h3>
           <p class="description"><%= activity.description %></p>
@@ -36,6 +36,10 @@
         </div>
         <%= javascript_tag "insertBar('#{activity.amount}', #{activity.amount / activity.goal.to_f}, #{i})" %>
       </article>
+      <!-- Dont place separator after last acitivity -->
+      <% unless i == @activities.length - 1 %>
+        <hr/>
+      <% end %>
     <% end %>
   </section>
 </section>
