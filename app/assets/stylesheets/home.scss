@@ -34,10 +34,12 @@
     background-size:100%;
     background-position: center;
     height: 100%;
+    overflow: hidden;
     img{
-      background-size: cover;
-      background-position: center;
-      max-height: 100%;
+      position: center;
+      width:100%;
+      overflow: hidden;
+
     }
   }
   
