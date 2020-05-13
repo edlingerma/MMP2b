@@ -79,6 +79,6 @@
     <%= button_to 'Edit Challenge', edit_challenge_path, method: 'get', class: 'button is-success is-outlined button-transition' %>
   </section>
   <section class="column">
-    <%= button_to 'Delete Challenge', @challenge, method: 'delete', class: 'button is-danger is-outlined button-transition' %>
+    <%= button_to 'Delete Challenge', @challenge, method: 'delete', class: 'button is-danger is-outlined button-transition', data: {turbolinks: false, confirm: "Are you sure you want to delete this challenge?" } %>
   </section>
 </section>
