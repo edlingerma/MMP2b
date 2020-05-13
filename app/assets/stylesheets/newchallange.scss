@@ -3,6 +3,10 @@
 .newchallange{
     padding: $space-large;
 
+    h1, h2{
+        color: $primary-color;
+    }
+
     h2{
         padding-top: $space-large;
     }
