@@ -5,6 +5,7 @@ json.activities(challenge.activities) do |activity|
   json.title activity.title
   json.description activity.description
   json.goal activity.goal
+  json.progress activity.amount
   json.unit activity.unit
 end
 
