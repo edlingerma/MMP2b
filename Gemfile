@@ -66,3 +66,5 @@ gem "bulma-rails", "~> 0.8.0"
 
 # ActiveStorage
 gem "azure-storage"
+
+gem 'active_storage_validations'
