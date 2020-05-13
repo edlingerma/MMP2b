@@ -1,0 +1,69 @@
+@import "variables";
+
+.button-transition {
+  transition: 0.2s ease-in;
+}
+
+.show-container {
+  padding: $space-medium;
+  margin: $space-medium;
+}
+
+.show_owner-container {
+  padding: $space-medium 0;
+  margin: $space-medium 0;
+  .subtitle{
+    color: #2E2F30;
+  }
+}
+
+.show-header {
+  background-color: $primary-color;
+  padding: $space-medium;
+
+  .column {
+    text-align: center;
+  }
+}
+
+.activities {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.activity {
+  text-align: center;
+  margin-bottom: $space-large;
+  .subtitle{
+    color: #2E2F30;
+  }
+}
+
+.num_requests {
+  background-color: #FFA500;
+  border-radius: 100%;
+  position: relative;
+  left: calc(50% + 73px);
+  top: 10px;
+  z-index: 2;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 1.2;
+  user-select: none;
+}
+
+.description {
+  padding: $space-small;
+  @media screen and (max-width: 720px){
+    word-wrap: break-word;
+  }
+  
+}
+
+.progressbar {
+  display: flex;
+  justify-content: space-between;
+}

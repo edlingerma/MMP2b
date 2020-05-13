@@ -1,0 +1,39 @@
+<%= form_with(model: entry, local: true) do |form| %>
+  <% if entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+        <% entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= form.label :amount, "How much do you want to contribute?", class: "label"%>
+
+  <small>
+    <div class="field has-addons">
+      <div class="control">
+        <div class="field">
+            <%= form.text_field :amount, class: 'form-control', method: "get", class: "input", type: "text" %> 
+        </div>
+      </div>
+      <div class="control">
+        <a class="button is-static">
+          <%= @activity.unit %>
+        </a>
+      </div>
+    </div>
+  </small>
+
+  <div class="field">
+    <%= form.hidden_field :activity_id %>
+  </div>
+
+  <div class="actions">
+      <%= submit_tag "Contribute", method: "get", class: "button is-primary"  %>
+  </div>
+<% end %>

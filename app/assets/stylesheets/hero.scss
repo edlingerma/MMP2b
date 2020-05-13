@@ -1,0 +1,30 @@
+@import "variables";
+
+.hero{
+    background-image: asset-data-url("hero_2880.jpg");
+    background-position: center;
+    img{
+        max-width: 100%;
+    }
+    min-height: 45vh;
+    background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: 1440px) {
+  .hero {
+    background-image: asset-data-url("hero_1440.jpg");
+  }
+  @media screen and (max-width: 720px) {
+    .hero {
+      background-image: asset-data-url("hero_720.jpg");
+    }
+  }
+}
+.overview{
+    font-size: 2rem;
+    background-color: $primary-color;
+    color: white;
+    padding: 1rem;
+    margin-bottom: $space-small;
+
+}

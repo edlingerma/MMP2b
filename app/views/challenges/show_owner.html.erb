@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+<section class="hero"></section>
+<section class="show-header columns is-centered is-multiline is-vcentered">
+  <div class="column">
+    <h1 class="title"><%= @challenge.title %></h1>
+    <h2 class="subtitle"><%= @challenge.description %></h2>
+  </div>
+  <div class="column">
+    <%= button_to 'Back to Challenge', challenge_path, method: 'get', class: 'button is-warning is-outlined button-transition' %>
+  </div>
+</section>
+<section class="show_owner-container container is-fluid columns is-desktop">
+  <section class="column">
+    <h2 class="subtitle">Open requests (<%= @unconfirmed_requests.length %>)</h2>
+    <% if @unconfirmed_requests.length == 0 %>
+      <p>There are currently no open requests</p>
+    <% end %>
+    <section class="show-container__list list">
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>User</th>
+              <td>Accept</td>
+              <td>Reject</td>
+            </tr>
+          </thead>
+          <% @unconfirmed_requests.each do |request| %>
+          <tbody>
+            <tr>
+              <th><%= request.user.name %></th>
+              <td><%= link_to 'accept', accept_request_path(request.id) %></td>
+              <td><%= link_to 'reject', reject_request_path(request.id) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
+    </section>
+  </section>
+  <section class="column">
+    <h2 class="subtitle">Members (<%= @confirmed_requests.length %>)</h2>
+    <% if @confirmed_requests.length == 0 %>
+      <p>There are currently no members in the challenge</p>
+    <% end %>
+    <section class="show-container__list list">
+      <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>User</th>
+              <td>Remove from Challenge</td>
+            </tr>
+          </thead>
+          <% @confirmed_requests.each do |request| %>
+          <tbody>
+            <tr>
+              <th><%= request.user.name %></th>
+              <td><%= link_to 'remove', reject_request_path(request.id) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
+    </section>
+  </section>
+  <section class="column is-half-desktop is-desktop">
+    <h2 class="subtitle">Entries (<%= @entries.length %>)</h2>
+    <% if @entries.length == 0 %>
+      <p>There are currently no entries in the challenge</p>
+    <% end %>
+    <section class="show-container__list list">
+      <% @entries.each do |entry| %>
+        <p class="list-item">
+          <%= "#{entry.created_at}: #{entry.user.name} contributed #{entry.amount} #{entry.activity.unit} to Activity #{entry.activity.title}" %>
+        </p>
+      <% end %>
+    </section>
+  </section>
+</section>
+<section class="show_owner-container is-fluid container">
+  <section class="column">
+    <%= button_to 'Edit Challenge', edit_challenge_path, method: 'get', class: 'button is-success is-outlined button-transition' %>
+  </section>
+  <section class="column">
+    <%= button_to 'Delete Challenge', @challenge, method: 'delete', class: 'button is-danger is-outlined button-transition' %>
+  </section>
+</section>

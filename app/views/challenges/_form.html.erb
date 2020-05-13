@@ -1,0 +1,52 @@
+<%= javascript_pack_tag "application" %>
+<%= form_with(model: challenge, local: true) do |form| %>
+  <% if challenge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(challenge.errors.count, "error") %> prohibited this challenge from being saved:</h2>
+
+      <ul>
+        <% challenge.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, placeholder: 'Title',  method: "get", class: "input", type: "text" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, class: "label" %>
+    <%= form.text_area :description, placeholder: 'Description', method: "get", class: "textarea", type: "text" %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :avatar %>
+  </div>
+
+  <h2 class="subtitle">Activities</h2>
+  <div data-controller="nested-form">
+    <template data-target='nested-form.template'>
+      <%= form.fields_for :activities, Activity.new, child_index: 'TEMPLATE_RECORD' do |activity| %>
+        <%= render 'activity_fields', form: activity %>
+      <% end %>
+    </template>
+
+    <%= form.fields_for :activities do |activity| %>
+      <%= render 'activity_fields', form: activity %>
+    <% end %>
+
+    <div data-target="nested-form.add_item">
+      <%= link_to "Add Activity", "#", data: { action: "nested-form#add_association" }, class: "button is-primary" %>
+    </div>
+  </div>
+
+  <div class="field is-grouped is-grouped-centered">
+      <div class="actions">
+          <%= submit_tag buttonText, method: "get", class: "button is-primary is-large"  %>
+      </div>
+  </div>
+
+<% end %>

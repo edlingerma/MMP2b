@@ -6,10 +6,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
+    <%= favicon_link_tag asset_path('favicon.png') %>
+
   </head>
 
   <body>
+  <%= render "challenges/header" %>
+  <div class="pushdown">
     <%= yield %>
+  </div>
+  <%= render "challenges/footer" %>
   </body>
 </html>

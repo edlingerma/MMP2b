@@ -1,0 +1,14 @@
+<%= link_to '<- Back', @activity.challenge, class: "button is-primary" %>
+
+<div class="form">
+<div class="form__box">
+<div class="form__box--contribute">
+
+    <h1 class="title">Contribute to activity "<%= @activity.title %>"</h1>
+
+    <%= render 'form', entry: @entry %>
+
+</div>
+</div>
+</div>
+

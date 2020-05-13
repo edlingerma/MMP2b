@@ -1,0 +1,30 @@
+@import "variables";
+
+.newchallange{
+    padding: $space-large;
+
+    h2{
+        padding-top: $space-large;
+    }
+
+    // Button Create
+    .actions{
+        padding-top: $space-large;
+    }
+
+    &__activity{
+
+        .form-group{
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            padding: $space-medium 0;
+        }
+
+        .remove {
+            justify-self: center;
+            align-self: center;
+        }
+
+    }
+    
+}

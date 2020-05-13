@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
   validates :username, presence: true, uniqueness: true
+  has_many :requests
+  has_many :entries
+  has_many :challenges, :through => :requests
 
   private
 

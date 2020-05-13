@@ -1,3 +1,94 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "variables";
+
+.challengeContainer{
+    margin: $space-medium;
+    display: grid;
+    grid-template-columns: auto 20% 20%;
+    grid-template-rows: 20vh 7vh;
+    border-radius: 1.5rem/2rem;
+    overflow: hidden;
+    background-color:  #FFFFFF;
+    transition: all 0.4s ease-in-out;
+    
+    h2{
+        font-size: 30px;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      &:visited{
+        color: white;
+      }
+    }
+    
+
+    &:hover{
+      box-shadow: 10px 8px 24px 6px rgba(0,0,0,0.75);
+      cursor: pointer;
+    }
+  }
+  .challenge_img{
+    background-color: #ffffff;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: center;
+    height: 100%;
+    img{
+      background-size: cover;
+      background-position: center;
+      max-height: 100%;
+    }
+  }
+  
+  .challenge_title{
+    display: inline-grid;
+    justify-items: center;
+  align-items: center;
+    background-color: $primary-color;
+    grid-row-start:1;
+    grid-column-start:2;
+    grid-column-end: 4;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    background-size:100%;
+    background-position: center;
+    height: 100%;
+    h2{
+      padding-top: $space-medium;
+      color: $secondary-color;
+    }
+  }
+  
+  .challenge_descp{
+    //background-color: green;
+    grid-column-start:1;
+    grid-column-end:4;
+    overflow: hidden;
+    background-size:100%;
+    background-position: center;
+    height: 100%;
+    border: 5px solid;
+    border-color: $primary-color  transparent transparent;
+    padding: $space-small;
+    p{
+      color: $primary-color;
+      word-wrap: break-word;
+    }
+  }
+  .challenge_button{
+    text-align: center;
+    background-size:100%;
+    background-position: center;
+    height: 100%;
+    border: 5px solid;
+    border-color: $primary-color transparent transparent transparent;
+    color: primary-color !important;
+  }
+  
+  .blurr{
+      background-color: #82EAF8;
+      //background-image: url(https://upload.wikimedia.org/wikipedia/commons/8/84/Microphone_on_stand_in_front_of_blurry_background.jpg);
+  }
+  
