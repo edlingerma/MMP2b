@@ -24,7 +24,7 @@
       <article class="columns">
         <div class="column is-one-fifth activity">
           <h3 class="subtitle"><%= activity.title %></h3>
-          <p class="description"><%= activity.description %></p>
+          <p class="description"><%= activity.description %><%= javascript_tag("stringReplace('#{activity.description}')") %> </p>
           <% if current_user && is_member %>
             <%= button_to 'Contribute', new_entry_path, params: { activity_id: activity.id }, method: 'get', class: 'button is-primary button-transition'%>
           <% end %>
@@ -41,3 +41,6 @@
     <% end %>
   </section>
 </section>
+<script>
+  
+</script>

@@ -53,13 +53,14 @@
 }
 
 .description {
-  padding-bottom: $space-small;
+  padding: $space-small;
+  @media screen and (max-width: 720px){
+    word-wrap: break-word;
+  }
+  
 }
 
 .progressbar {
   display: flex;
   justify-content: space-between;
-  svg{
-    max-width: 90vw;
-}
 }
