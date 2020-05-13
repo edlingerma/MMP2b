@@ -56,11 +56,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_093315) do
     t.index ["owner_id"], name: "index_challenges_on_owner_id"
   end
 
-  create_table "challenges_users", id: false, force: :cascade do |t|
-    t.bigint "challenge_id", null: false
-    t.bigint "user_id", null: false
-  end
-
   create_table "entries", force: :cascade do |t|
     t.integer "amount"
     t.bigint "activity_id"
