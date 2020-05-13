@@ -63,3 +63,6 @@ gem 'dotenv-rails'
 gem 'rubocop-rails', require: false
 
 gem "bulma-rails", "~> 0.8.0"
+
+# ActiveStorage
+gem "azure-storage"

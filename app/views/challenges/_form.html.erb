@@ -22,6 +22,10 @@
     <%= form.text_area :description, placeholder: 'Description', method: "get", class: "textarea", type: "text" %>
   </div>
 
+  <div class="field">
+    <%= form.file_field :avatar %>
+  </div>
+
   <h2 class="subtitle">Activities</h2>
   <div data-controller="nested-form">
     <template data-target='nested-form.template'>

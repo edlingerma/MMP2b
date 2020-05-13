@@ -11,6 +11,8 @@
     <div class="challengeContainer">
     <%= link_to(challenge, class: "challenge_img")  do%>  
       <div class="challenge_img">
+        <%= image_tag challenge.avatar if challenge.avatar.attached? %>
+        <%= image_tag("logo.png") unless challenge.avatar.attached? %>
       </div>
     <% end%>
      <%= link_to(challenge, class: "challenge_title") do%>

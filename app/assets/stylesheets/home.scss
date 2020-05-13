@@ -31,14 +31,15 @@
   .challenge_img{
     background-color: #49A69C;
     object-fit: cover;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/b/b9/Football_iu_1996.jpg");
-  background-repeat: no-repeat;
-  background-size:100%;
-  background-position: center;
-  height: 100%;
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: center;
+    height: 100%;
     img{
-    max-width: 100%;
-  }
+      background-size: cover;
+      background-position: center;
+      max-height: 100%;
+    }
   }
   
   .challenge_title{
