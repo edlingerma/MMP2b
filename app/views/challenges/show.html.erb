@@ -23,7 +23,7 @@
         <div class="column is-one-fifth activity">
           <h3 class="subtitle"><%= activity.title %></h3>
           <p class="description"><%= activity.description %></p>
-          <% if current_user && is_member %>
+          <% if current_user && is_member && activity.amount < activity.goal %>
             <%= button_to 'Contribute', new_entry_path, params: { activity_id: activity.id }, method: 'get', class: 'button is-primary button-transition'%>
           <% end %>
         </div>
