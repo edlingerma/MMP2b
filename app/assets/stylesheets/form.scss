@@ -32,6 +32,12 @@
         width: 30%;
         min-width: 450px;
 
+        &--sign{
+            .loginlink{
+                margin-top: $space-small;
+            }
+        }
+
         &--contribute{
             text-align: center;
             align-items: center;
@@ -40,6 +46,10 @@
                 margin: 0 20px;
                 justify-content: center;
             }
+        }
+
+        .content ul{
+            margin-top:0;
         }
     }
 
