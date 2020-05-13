@@ -29,12 +29,6 @@ class ChallengesController < ApplicationController
     unless is_owner
       redirect_to @challenge, notice: 'You must be the owner of this challenge.'
     end
-    @requests = @challenge.requests
-    @unconfirmed_requests = @requests.reject(&:confirmed)
-
-    @confirmed_requests = @requests.select do |request|
-      request.confirmed && request.user != @challenge.owner
-    end
 
     @entries = @challenge.entries.sort_by(&:created_at).reverse!
   end

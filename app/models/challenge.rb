@@ -9,4 +9,12 @@ class Challenge < ApplicationRecord
   validates_length_of :description, maximum: 240;
   has_one_attached :avatar
   validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  def unconfirmed_requests
+    requests.reject(&:confirmed)
+  end
+  def confirmed_requests
+    requests.select do |request|
+      request.confirmed && request.user != owner
+    end
+  end
 end

@@ -11,8 +11,8 @@
 </section>
 <section class="show_owner-container container is-fluid columns is-desktop">
   <section class="column">
-    <h2 class="subtitle">Open requests (<%= @unconfirmed_requests.length %>)</h2>
-    <% if @unconfirmed_requests.length == 0 %>
+    <h2 class="subtitle">Open requests (<%= @challenge.unconfirmed_requests.length %>)</h2>
+    <% if @challenge.unconfirmed_requests.length == 0 %>
       <p>There are currently no open requests</p>
     <% end %>
     <section class="show-container__list list">
@@ -24,7 +24,7 @@
               <td>Reject</td>
             </tr>
           </thead>
-          <% @unconfirmed_requests.each do |request| %>
+          <% @challenge.unconfirmed_requests.each do |request| %>
           <tbody>
             <tr>
               <th><%= request.user.name %></th>
@@ -37,8 +37,8 @@
     </section>
   </section>
   <section class="column">
-    <h2 class="subtitle">Members (<%= @confirmed_requests.length %>)</h2>
-    <% if @confirmed_requests.length == 0 %>
+    <h2 class="subtitle">Members (<%= @challenge.confirmed_requests.length %>)</h2>
+    <% if @challenge.confirmed_requests.length == 0 %>
       <p>There are currently no members in the challenge</p>
     <% end %>
     <section class="show-container__list list">
@@ -49,7 +49,7 @@
               <td>Remove from Challenge</td>
             </tr>
           </thead>
-          <% @confirmed_requests.each do |request| %>
+          <% @challenge.confirmed_requests.each do |request| %>
           <tbody>
             <tr>
               <th><%= request.user.name %></th>

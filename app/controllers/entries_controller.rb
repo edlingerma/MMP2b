@@ -14,8 +14,8 @@ class EntriesController < ApplicationController
       redirect_to @entry.activity.challenge, notice: 'You must be a member of this challenge.'
       return
     end
-    if @entry.activity.goal < current_amount(@entry.activity) + @entry.amount
-      @entry.amount = @entry.activity.goal - current_amount(@entry.activity)
+    if @entry.activity.goal < @entry.activity.amount + @entry.amount
+      @entry.amount = @entry.activity.goal - @entry.activity.amount
     end
 
     if @entry.save
