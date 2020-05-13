@@ -1,6 +1,6 @@
-const stringReplace =(description)=>{
-     return description.replace(/(.{80})/g, "aaaaa");
+const reload =()=>{
+     location.reload
 
 }
 
-window.stringReplace = stringReplace;
+window.reload = reload;
