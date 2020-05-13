@@ -32,6 +32,12 @@
         width: 30%;
         min-width: 450px;
 
+        &--sign{
+            .loginlink{
+                margin-top: $space-small;
+            }
+        }
+
         &--contribute{
             text-align: center;
             align-items: center;
@@ -52,4 +58,12 @@
             }
         }
     }
+}
+
+#backbuttoncontribute{
+    position: absolute;
+}
+
+.content ul{
+    margin-top:0;
 }
