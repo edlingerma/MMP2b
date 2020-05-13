@@ -10,6 +10,10 @@ footer{
         
         grid-template-columns: auto 30% auto;
 
+        p {
+          margin-top: $space-medium;
+        }
+
         .gird-left{
             grid-column-start: 1;
             grid-column-end: 2;
