@@ -14,7 +14,7 @@
     <h2 class="subtitle">Open requests (<%= @challenge.unconfirmed_requests.length %>)</h2>
     <% if @challenge.unconfirmed_requests.length == 0 %>
       <p>There are currently no open requests</p>
-    <% end %>
+    <% else %>
     <section class="show-container__list list">
         <table class="table is-hoverable is-fullwidth">
           <thead>
@@ -35,12 +35,13 @@
         <% end %>
         </table>
     </section>
+    <% end %>
   </section>
   <section class="column">
     <h2 class="subtitle">Members (<%= @challenge.confirmed_requests.length %>)</h2>
     <% if @challenge.confirmed_requests.length == 0 %>
       <p>There are currently no members in the challenge</p>
-    <% end %>
+    <% else %>
     <section class="show-container__list list">
       <table class="table is-hoverable is-fullwidth">
           <thead>
@@ -59,6 +60,7 @@
         <% end %>
         </table>
     </section>
+    <% end %>
   </section>
   <section class="column is-half-desktop is-desktop">
     <h2 class="subtitle">Entries (<%= @entries.length %>)</h2>
