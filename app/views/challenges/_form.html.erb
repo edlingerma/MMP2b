@@ -3,14 +3,16 @@
   <% if challenge.errors.any? %>
     <article class="message is-danger">
       <div class="message-header">
-        <p><%= pluralize(challenge.errors.count, "error") %> prohibited this challenge from being saved:</p>
+        <p><%= pluralize(challenge.errors.count, "error") %> prohibited this challenge from being created:</p>
       </div>
       <div class="message-body" id="error_explanation">
-        <ul>
-          <% challenge.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+        <div class="content">
+          <ul>
+            <% challenge.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </article>
   <% end %>
