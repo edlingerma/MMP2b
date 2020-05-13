@@ -16,13 +16,24 @@
       <p>There are currently no open requests</p>
     <% end %>
     <section class="show-container__list list">
-      <% @unconfirmed_requests.each do |request| %>
-        <p class="list-item">
-          <%= request.user.name %>
-          <%= link_to 'accept', accept_request_path(request.id) %>
-          <%= link_to 'reject', reject_request_path(request.id) %>
-        </p>
-      <% end %>
+        <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>User</th>
+              <td>Accept</td>
+              <td>Reject</td>
+            </tr>
+          </thead>
+          <% @unconfirmed_requests.each do |request| %>
+          <tbody>
+            <tr>
+              <th><%= request.user.name %></th>
+              <td><%= link_to 'accept', accept_request_path(request.id) %></td>
+              <td><%= link_to 'reject', reject_request_path(request.id) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
     </section>
   </section>
   <section class="column">
@@ -31,12 +42,22 @@
       <p>There are currently no members in the challenge</p>
     <% end %>
     <section class="show-container__list list">
-      <% @confirmed_requests.each do |request| %>
-        <p class="list-item">
-          <%= request.user.name %>
-          <%= link_to 'remove', reject_request_path(request.id) %>
-        </p>
-      <% end %>
+      <table class="table is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>User</th>
+              <td>Remove from Challenge</td>
+            </tr>
+          </thead>
+          <% @confirmed_requests.each do |request| %>
+          <tbody>
+            <tr>
+              <th><%= request.user.name %></th>
+              <td><%= link_to 'remove', reject_request_path(request.id) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
     </section>
   </section>
   <section class="column is-half-desktop is-desktop">
