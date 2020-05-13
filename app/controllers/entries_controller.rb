@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.user = current_user
     unless is_member
-      redirect_to @entry.activity.challenge, notice: 'You must be a member of this challenge.'
+      redirect_to @entry.activity.challenge, warning: 'You must be a member of this challenge.'
       return
     end
     if @entry.activity.goal < @entry.activity.amount + @entry.amount
@@ -19,9 +19,9 @@ class EntriesController < ApplicationController
     end
 
     if @entry.save
-      redirect_to @entry.activity.challenge, notice: 'Entry was successfully confirmed.'
+      redirect_to @entry.activity.challenge, success: 'Entry was successfully confirmed.'
     else
-      redirect_to @entry.activity.challenge, notice: 'Entry was NOT successfully confirmed.'
+      redirect_to @entry.activity.challenge, error: 'Oops, there was an error with your entry. Please try again.'
     end
   end
 

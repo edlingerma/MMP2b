@@ -23,11 +23,13 @@
             <%= form.text_field :amount, class: 'form-control', method: "get", class: "input", type: "text" %> 
         </div>
       </div>
-      <div class="control">
-        <a class="button is-static">
-          <%= @activity.unit %>
-        </a>
-      </div>
+      <% if @activity.unit != "" %>
+        <div class="control">
+          <a class="button is-static">
+            <%= @activity.unit %>
+          </a>
+        </div>
+      <% end %>
     </div>
 
   <div class="field">

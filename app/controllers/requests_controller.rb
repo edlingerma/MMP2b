@@ -4,17 +4,17 @@ class RequestsController < ApplicationController
 
   def accept
     if @request.update(confirmed: true)
-      redirect_to show_owner_challenge_path(@challenge), notice: 'Successfully accepted.'
+      redirect_to show_owner_challenge_path(@challenge), success: 'Successfully accepted.'
     else
-      redirect_to show_owner_challenge_path(@challenge), notice: 'NOT successfully accepted.'
+      redirect_to show_owner_challenge_path(@challenge), error: 'Oops, there was a problem with your acception. Please try again.'
     end
   end
 
   def reject
     if @request.destroy
-      redirect_to show_owner_challenge_path(@challenge), notice: 'Successfully removed.'
+      redirect_to show_owner_challenge_path(@challenge), success: 'Successfully removed.'
     else
-      redirect_to show_owner_challenge_path(@challenge), notice: 'NOT successfully removed.'
+      redirect_to show_owner_challenge_path(@challenge), error: 'Oops, there was a problem with your rejection. Please try again.'
     end
   end
 
@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
 
   def logged_in
     unless current_user
-      redirect_to signup_path, notice: 'You must be logged in.'
+      redirect_to signup_path, warning: 'You must be logged in.'
     end
   end
 end
