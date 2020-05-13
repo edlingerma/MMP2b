@@ -1,13 +1,17 @@
 @import "variables";
 
+.challengeWrapper{
+  max-width: 750px;
+}
+
 .challengeContainer{
     margin: $space-medium;
     display: grid;
     grid-template-columns: auto 20% 20%;
-    grid-template-rows: 20vh 7vh;
+    grid-template-rows: 150px 70px;
     border-radius: 1.5rem/2rem;
     overflow: hidden;
-    background-color:  #FFFFFF;
+    background-color: #FFFFFF;
     transition: all 0.4s ease-in-out;
     
     h2{
@@ -31,10 +35,10 @@
     background-color: #ffffff;
     object-fit: cover;
     background-repeat: no-repeat;
-    background-size:100%;
     background-position: center;
     height: 100%;
     overflow: hidden;
+    background-size: cover;
     img{
       position: center;
       width:100%;
@@ -46,7 +50,7 @@
   .challenge_title{
     display: inline-grid;
     justify-items: center;
-  align-items: center;
+    align-items: center;
     background-color: $primary-color;
     grid-row-start:1;
     grid-column-start:2;
