@@ -24,7 +24,7 @@
                 <% unconfirmed_requests = challenge.requests.select do |request| %>
                   <%request.confirmed.nil? %>
                 <% end %>
-                <span class="num_requests"><%= unconfirmed_requests.length %></span>
+                <span class="num_requests_home"><%= unconfirmed_requests.length %></span>
               <% end %>
             <% end %>
           <% end %>
