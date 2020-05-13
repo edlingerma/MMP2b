@@ -8,15 +8,21 @@
     margin: $space-medium;
     display: grid;
     grid-template-columns: auto 20% 20%;
-    grid-template-rows: 150px 70px;
+    grid-template-rows: 150px auto;
     border-radius: 1.5rem/2rem;
     overflow: hidden;
     background-color: #FFFFFF;
     transition: all 0.4s ease-in-out;
     
     h2{
-        font-size: 30px;
+      font-size: 20px;
+      @media screen and (max-width: 764px){
+        & {
+          font-size: 16px;
+        }
+      }
     }
+
     a{
       text-decoration: none;
       color: white;
@@ -72,7 +78,6 @@
     grid-row-start:1;
     grid-column-start:2;
     grid-column-end: 4;
-    align-items: center;
     text-align: center;
     overflow: hidden;
     background-size:100%;
@@ -85,12 +90,8 @@
   }
   
   .challenge_descp{
-    //background-color: green;
     grid-column-start:1;
     grid-column-end:4;
-    overflow: hidden;
-    background-size:100%;
-    background-position: center;
     height: 100%;
     border: 5px solid;
     border-color: $primary-color  transparent transparent;
@@ -99,15 +100,6 @@
       color: $primary-color;
       word-wrap: break-word;
     }
-  }
-  .challenge_button{
-    text-align: center;
-    background-size:100%;
-    background-position: center;
-    height: 100%;
-    border: 5px solid;
-    border-color: $primary-color transparent transparent transparent;
-    color: primary-color !important;
   }
   
   .blurr{
