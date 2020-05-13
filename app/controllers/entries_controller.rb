@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
     end
 
     if @entry.save
-      redirect_to @entry.activity.challenge
+      redirect_to @entry.activity.challenge, notice: 'Entry was successfully confirmed.'
     else
       redirect_to @entry.activity.challenge, notice: 'Entry was NOT successfully confirmed.'
     end
