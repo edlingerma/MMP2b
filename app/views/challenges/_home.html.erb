@@ -18,7 +18,16 @@
               <%# <p>...Learn More</p> %>
           <%# <% end%>
           </div>
-          
+          <% unless current_user == nil %>
+            <% if current_user == challenge.owner %>
+              <% if challenge.requests.length > 0 %>
+                <% unconfirmed_requests = challenge.requests.select do |request| %>
+                  <%request.confirmed.nil? %>
+                <% end %>
+                <span class="num_requests"><%= unconfirmed_requests.length %></span>
+              <% end %>
+            <% end %>
+          <% end %>
 
       </div>
 

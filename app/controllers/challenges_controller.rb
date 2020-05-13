@@ -14,11 +14,11 @@ class ChallengesController < ApplicationController
       is_member
     end
     #TODO: Code auslagern
-    @num_requests=0
+    @num_all_requests=0
     @challenges.each do |challenge|
       challenge.requests.each do |request|
         if request.confirmed.nil?
-          @num_requests= @num_requests + 1
+          @num_all_requests= @num_all_requests + 1
         end
       end
     end
