@@ -1,7 +1,7 @@
 @import "variables";
 
 .hero{
-    background-image: url("hero_2880.jpg");
+    background-image: asset-data-url("hero_2880.jpg");
     background-position: center;
     img{
         max-width: 100%;
@@ -12,11 +12,11 @@
 }
 @media screen and (max-width: 1440px) {
   .hero {
-    background-image: url("hero_1440.jpg");
+    background-image: asset-data-url("hero_1440.jpg");
   }
   @media screen and (max-width: 720px) {
     .hero {
-      background-image: url("hero_720.jpg");
+      background-image: asset-data-url("hero_720.jpg");
     }
   }
 }
