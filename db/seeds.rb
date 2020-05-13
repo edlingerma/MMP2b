@@ -12,9 +12,12 @@ Challenge.create([
                                 { title: 'Sports Salzburg', description: 'Everyone is welcome!', owner: User.find(5) }
                               ])
 
-Challenge.find(1).avatar.attach(io: File.open('storage/seed1.jpg'), filename: 'seed1.jpg')
-Challenge.find(2).avatar.attach(io: File.open('storage/seed2.jpg'), filename: 'seed2.jpg')
-Challenge.find(3).avatar.attach(io: File.open('storage/seed3.jpg'), filename: 'seed3.jpg')
+downloaded_image1 = open("https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80.jpg")
+downloaded_image2 = open("https://pixabay.com/get/57e3d140425aa514f6d1867dda35367b1d36dded5b59714d_1920.jpg")
+downloaded_image3 = open("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80.jpg")
+Challenge.find(1).avatar.attach(io: downloaded_image1, filename: 'seed1.jpg')
+Challenge.find(2).avatar.attach(io: downloaded_image2, filename: 'seed2.jpg')
+Challenge.find(3).avatar.attach(io: downloaded_image3, filename: 'seed3.jpg')
 
 Request.create([{ user: User.find(4), challenge: Challenge.find(1), confirmed: true },
                 { user: User.find(1), challenge: Challenge.find(2), confirmed: true },
