@@ -6,7 +6,7 @@
  
     <div class="column is-two-fifths"> 
     
-    <%# // nächste größe : is-two-fifths und is four-fifths %>
+    <%# // nächste größe : is-two-fifths und is-four-fifths %>
     
     <div class="challengeContainer">
     <%= link_to(challenge, class: "challenge_img")  do%>  
@@ -19,11 +19,11 @@
         <h2 class="subtitle"><%= challenge.title %></h2>
      <% end %>
      <%= link_to(challenge, class: "challenge_descp") do%>
-        <%= challenge.description %>
+        <p><%= challenge.description %></p>
      <% end%>
-      <%= link_to(challenge, class: "challenge_button") do%>
-          <p>...Learn More</p>
-      <% end%>
+      <%# <%= link_to(challenge, class: "challenge_button") do%>
+          <%# <p>...Learn More</p> %>
+      <%# <% end%>
       </div>
       
     </div>
