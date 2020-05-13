@@ -18,12 +18,6 @@ class ChallengesController < ApplicationController
   def show
     @activities = @challenge.activities
 
-    @activities_amount = []
-    @activities.each_with_index do |activity, i|
-      @activities_amount[i] = current_amount(activity)
-      @activities_amount[i] /= activity.goal.to_f
-    end
-
     # Get amount of candidates for challenge to notifiy owner
     requests = @challenge.requests.select do |request|
       request.confirmed.nil?

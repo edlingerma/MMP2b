@@ -32,11 +32,11 @@
         <div id="container-<%= i %>" class="column">
           <div class="progressbar">
             <p></p>
-            <p><%= "#{(@activities_amount[i] * activity.goal).to_i} #{activity.unit}" %></p>
+            <p><%= "#{activity.amount} #{activity.unit}" %></p>
             <p><%= "#{activity.goal} #{activity.unit}" %></p>
           </div>
         </div>
-        <%= javascript_tag "insertBar('#{(@activities_amount[i] * activity.goal).to_i}', #{@activities_amount[i]}, #{i})" %>
+        <%= javascript_tag "insertBar('#{activity.amount}', #{activity.amount / activity.goal.to_f}, #{i})" %>
       </article>
     <% end %>
   </section>
