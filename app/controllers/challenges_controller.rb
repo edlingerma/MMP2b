@@ -40,9 +40,9 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.owner = current_user
-    Request.create(user: current_user, challenge: @challenge, confirmed: true)
 
     if @challenge.save
+      Request.create(user: current_user, challenge: @challenge, confirmed: true)
       redirect_to @challenge, success: 'Challenge was successfully created.'
     else
       render :new
