@@ -7,11 +7,23 @@
 .show-container {
   padding: $space-medium;
   margin: $space-medium;
+
+  &__list {
+    &--entries {
+      @media screen and (min-width: 1000px){
+        margin-left: $space-large;
+      }
+    }
+  }
 }
 
 .show_owner-container {
   padding: $space-medium 0;
   margin: $space-medium 0;
+
+  h2 {
+    color: #000000;
+  }
 }
 .subtitle{
   color: #2E2F30;

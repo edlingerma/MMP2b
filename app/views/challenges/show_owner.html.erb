@@ -61,26 +61,29 @@
     </section>
     <% end %>
   </section>
-  <section class="column is-half-desktop is-desktop">
-    <h2 class="subtitle">Entries (<%= @entries.length %>)</h2>
-    <% if @entries.length == 0 %>
-      <p>There are currently no entries in the challenge</p>
-    <% else %>
-    <section class="show-container__list list">
+  <section class="column">
+    <h2 class="subtitle">Manage Challenge</h2>
+    <section class="columns centered">
+      <section class="column">
+        <%= button_to 'Edit Challenge', edit_challenge_path, method: 'get', class: 'button is-success is-outlined button-transition' %>
+      </section>
+      <section class="column">
+        <%= button_to 'Delete Challenge', destroy_confirmation_challenge_path, method: 'get', class: 'button is-danger is-outlined button-transition' %>
+      </section>
+    </section>
+  </section>
+</section>
+<section class="show_owner-container is-fluid container">
+  <h2 class="subtitle">Entries (<%= @entries.length %>)</h2>
+  <% if @entries.length == 0 %>
+    <p>There are currently no entries in the challenge</p>
+  <% else %>
+    <section class="show-container__list--entries list">
       <% @entries.each do |entry| %>
         <p class="list-item">
           <%= "#{entry.created_at}: #{entry.user.name} contributed #{entry.amount} #{entry.activity.unit} to Activity #{entry.activity.title}" %>
         </p>
       <% end %>
     </section>
-    <% end %>
-  </section>
-</section>
-<section class="show_owner-container is-fluid container">
-  <section class="column">
-    <%= button_to 'Edit Challenge', edit_challenge_path, method: 'get', class: 'button is-success is-outlined button-transition' %>
-  </section>
-  <section class="column">
-    <%= button_to 'Delete Challenge', destroy_confirmation_challenge_path, method: 'get', class: 'button is-danger is-outlined button-transition' %>
-  </section>
+  <% end %>
 </section>
