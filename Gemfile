@@ -73,3 +73,6 @@ gem "azure-storage"
 gem 'active_storage_validations'
 
 gem "image_processing"
+
+# For test of json-API
+gem 'rswag'

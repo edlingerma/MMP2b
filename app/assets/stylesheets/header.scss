@@ -34,6 +34,11 @@
             border-color: $primary-color $primary-color $secondary-color $primary-color;
         }
     }
+    &_logo {
+      svg {
+        height: 8vh;
+      }
+    }
     .highlight{
         font-weight: bold;
         color: $secondary-color;
