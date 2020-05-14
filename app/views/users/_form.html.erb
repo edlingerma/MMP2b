@@ -14,6 +14,13 @@
         </div>
     </article>
   <% end %>
+  <div class="field is-grouped is-grouped-centered">
+    <%= link_to '/auth/facebook' do %>
+      <button class="loginBtn loginBtn--facebook">
+        Sign up with Facebook
+      </button>
+    <% end  %>
+  </div>
 
 <%= form_with(model: user, local: true) do |form| %>
   <div class="field">
