@@ -52,7 +52,7 @@
     @media screen and (max-width: 500px) {
         .form {
             &__box{
-                width: 100%;
+                width: 100vw;
                 margin: 0 5%;
                 min-width: 0;
             }
