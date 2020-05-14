@@ -1,3 +1,5 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :update, :destroy, :request_membership, :show_owner, :edit]
   before_action :logged_in, only: [:request_membership, :my_challenges, :create, :new]

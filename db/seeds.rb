@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 User.create([
               { name: 'Sepp', username: 'sefop174', password: 'seppsepp', password_confirmation: 'seppsepp' },
               { name: 'maria', username: 'maria', password: 'mariamaria', password_confirmation: 'mariamaria' },

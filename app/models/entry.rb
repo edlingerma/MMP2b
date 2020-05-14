@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 class Entry < ApplicationRecord
   belongs_to :activity
   belongs_to :user

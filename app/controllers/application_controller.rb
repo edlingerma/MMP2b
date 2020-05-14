@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 class ApplicationController < ActionController::Base
   helper_method :current_user, :num_requests, :is_member, :is_owner
   add_flash_types :info, :error, :warning, :success

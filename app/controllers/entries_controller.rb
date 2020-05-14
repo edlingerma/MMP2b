@@ -1,3 +1,5 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class EntriesController < ApplicationController
   before_action :logged_in, only: [:create, :new]
 

@@ -1,3 +1,5 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class RequestsController < ApplicationController
   before_action :set_request, only: [:accept, :reject, :remove_confirmation]
 

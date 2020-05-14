@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 require 'rails_helper'
 
 RSpec.describe RequestsController, type: :request do

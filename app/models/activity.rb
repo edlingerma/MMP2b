@@ -1,3 +1,5 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class Activity < ApplicationRecord
   belongs_to :challenge
   has_many :entries, dependent: :destroy

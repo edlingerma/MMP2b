@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 class CreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|

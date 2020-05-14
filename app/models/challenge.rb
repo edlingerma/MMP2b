@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 class Challenge < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   has_many :requests, dependent: :destroy

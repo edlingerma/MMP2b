@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 json.extract! challenge, :id, :title, :description, :created_at, :updated_at
 json.owner challenge.owner.username
 

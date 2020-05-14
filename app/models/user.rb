@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 class User < ActiveRecord::Base
   has_secure_password
   validates :username, presence: true, uniqueness: true
