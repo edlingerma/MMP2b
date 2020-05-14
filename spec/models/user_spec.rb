@@ -34,7 +34,7 @@ RSpec.describe(User, type: :model) do
   end
 
   describe "Create new user with invalid input (too long/short)" do
-    toolongstring = 'iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii'
+    toolongstring = 'a'*51
     it('too long username') do
       u = User.create( username: toolongstring, name: 'user', password: password, password_confirmation: password)
       expect(u).to be_invalid
