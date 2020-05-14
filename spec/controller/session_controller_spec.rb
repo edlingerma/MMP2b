@@ -20,7 +20,7 @@ RSpec.describe SessionsController, type: :request do
     end
 
     describe "Log in with Oauth" do
-        
+        # TODO   
     end
 
     describe "Log out: Destroy session" do
