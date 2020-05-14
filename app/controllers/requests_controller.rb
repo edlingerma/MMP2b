@@ -1,6 +1,5 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:accept, :reject]
-  before_action :logged_in, only: [:accept, :reject]
 
   def accept
     if @request.update(confirmed: true)
@@ -23,11 +22,5 @@ class RequestsController < ApplicationController
   def set_request
     @request = Request.find(params[:id])
     @challenge = @request.challenge
-  end
-
-  def logged_in
-    unless current_user
-      redirect_to signup_path, warning: 'You must be logged in.'
-    end
   end
 end
