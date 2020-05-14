@@ -39,12 +39,33 @@
   }
   .num_requests{
     &--home {
-      right: 38px;
+      right:38px;
       top: 8px;
       width: 30px;
       height: 30px;
       line-height: 30px;
       font-size: 20px;
+      display: block;
+    }
+
+    &--my-challenges {
+       width: 30px;
+       height: 30px;
+       line-height: 30px;
+       font-size: 20px;
+       color: #4a4a4a;
+       display: inline-block;
+       bottom: 15px;
+     }
+
+    &--navbar {
+      width: 30px;
+      height: 30px;
+      line-height: 25px;
+      font-size: 20px;
+      color: #4a4a4a;
+      display: inline-block;
+      bottom: 15px;
     }
   }
 
