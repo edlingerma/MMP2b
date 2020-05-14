@@ -93,10 +93,14 @@ class ChallengesController < ApplicationController
   end
 
   def is_owner
+    return false unless current_user
+
     current_user == @challenge.owner
   end
 
   def is_member
+    return false unless current_user
+
     @requests = current_user.requests
     @requests.each do |request|
       if request.challenge == @challenge && request.confirmed
