@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:accept, :reject]
+  before_action :set_request, only: [:accept, :reject, :remove_confirmation]
 
   def accept
     unless is_owner(@challenge)
@@ -21,6 +21,9 @@ class RequestsController < ApplicationController
     else
       redirect_to show_owner_challenge_path(@challenge), error: 'Oops, there was a problem with your rejection. Please try again.'
     end
+  end
+
+  def remove_confirmation
   end
 
   private
