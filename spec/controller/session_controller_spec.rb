@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :request do
 
-    let!(:user) { User.create(name: "Any name", username: "anyname", password: "1", password_confirmation: "1") }
+    let!(:user) { User.create(name: "Any name", username: "anyname", password: "password123", password_confirmation: "password123") }
 
     describe "Log in: Create new session" do
        
@@ -13,7 +13,7 @@ RSpec.describe SessionsController, type: :request do
         end
 
         it "password and username correct" do
-            post sessions_path , :params => { username: "anyname", password: "1" }
+            post sessions_path , :params => { username: "anyname", password: "password123" }
             expect(flash[:info]).to match("Logged in!")
             should redirect_to root_url
         end
