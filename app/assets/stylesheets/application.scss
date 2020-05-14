@@ -78,8 +78,10 @@ color: #FFF;
 
 // notification
 .notice {
+    display: flex;
+    align-items: center;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     top: 0;
     margin: 0;
     position: absolute;
@@ -101,6 +103,6 @@ color: #FFF;
     }
     100% {  
         /* Eigenschaften zum Ende der Animation */   
-        top: 0;
+        top: -50vh;
     }
 }
