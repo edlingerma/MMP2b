@@ -99,7 +99,7 @@ class ChallengesController < ApplicationController
     false
   end
 
-  def is_candidate
+  def is_candidate 
     requests = @challenge.requests
     requests.each do |request|
       if request.user == current_user
