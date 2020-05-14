@@ -61,9 +61,11 @@ class ChallengesController < ApplicationController
   def destroy
     unless is_owner(@challenge)
       redirect_to @challenge, warning: 'You must be the owner to delete this challenge.'
+      return
     end
     @challenge.destroy
     redirect_to challenges_url, success: 'Challenge was successfully deleted.'
+    return
   end
 
   def request_membership
