@@ -31,6 +31,8 @@
 .show-header {
   background-color: $primary-color;
   padding: $space-medium;
+  width: 100vw;
+  margin-left: 0;
 
   .column {
     text-align: center;
