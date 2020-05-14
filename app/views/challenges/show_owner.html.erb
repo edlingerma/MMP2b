@@ -53,7 +53,7 @@
           <tbody>
             <tr>
               <th><%= request.user.name %></th>
-              <td><%= link_to 'remove', reject_request_path(request.id) %></td>
+              <td><%= link_to 'remove', reject_request_path(request.id), data: { confirm: 'Are you sure?' } %></td>
             </tr>
           </tbody>
         <% end %>
