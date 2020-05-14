@@ -13,21 +13,10 @@ class ChallengesController < ApplicationController
       @challenge = challenge
       is_member
     end
-
-    @num_all_requests = 0
-    @challenges.each do |challenge|
-      @num_all_requests = challenge.unconfirmed_requests.count
-    end
   end
 
   def show
     @activities = @challenge.activities
-
-    # Get amount of candidates for challenge to notifiy owner
-    requests = @challenge.requests.select do |request|
-      request.confirmed.nil?
-    end
-    @num_requests = requests.length
   end
 
   def show_owner
