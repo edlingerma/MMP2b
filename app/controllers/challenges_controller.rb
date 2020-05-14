@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
-  before_action :logged_in, only: [:new, :request_membership, :my_challenges ]
+  before_action :logged_in, only: [:new, :request_membership, :my_challenges]
   helper_method :is_owner, :is_member, :is_candidate
 
   def index

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
       redirect_to signup_path, warning: 'You must be logged in.'
     end
   end
-  
+
   def num_requests
     if current_user
       challenges = Challenge.all
