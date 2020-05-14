@@ -19,10 +19,6 @@ RSpec.describe SessionsController, type: :request do
         end
     end
 
-    describe "Log in with Oauth" do
-        # TODO   
-    end
-
     describe "Log out: Destroy session" do
         it "log the current user out" do
             delete session_path('1')
