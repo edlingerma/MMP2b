@@ -25,7 +25,7 @@ local:
 microsoft:
   service: AzureStorage
   storage_account_name: remoteathlete
-  storage_access_key: TBuPdCQR15O5tBPeHe1WRDdPNNp8ul3b2GTShuXUqCuiSFYO6WJ3T5+EGIC2UsBicf/8evR+g5SGJqjSpmdwgQ==
+  storage_access_key: <%= ENV['STORAGE_KEY'] %>
   container: container
 
 # mirror:
