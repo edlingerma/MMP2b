@@ -1,9 +1,9 @@
 User.create([
-              { name: 'Sepp', username: 'sefop174', password: 'sepp', password_confirmation: 'sepp' },
-              { name: 'maria', username: 'maria', password: 'maria', password_confirmation: 'maria' },
-              { name: 'Claire Curtis', username: 'claireToGO', password: 'claire', password_confirmation: 'claire' },
-              { name: 'Peter', username: 'the_machine', password: 'peter', password_confirmation: 'peter' },
-              { name: 'Alice Moore', username: 'alice39', password: 'alice', password_confirmation: 'alice' }
+              { name: 'Sepp', username: 'sefop174', password: 'seppsepp', password_confirmation: 'seppsepp' },
+              { name: 'maria', username: 'maria', password: 'mariamaria', password_confirmation: 'mariamaria' },
+              { name: 'Claire Curtis', username: 'claireToGO', password: 'claireclaire', password_confirmation: 'claireclaire' },
+              { name: 'Peter', username: 'the_machine', password: 'peterpeter', password_confirmation: 'peterpeter' },
+              { name: 'Alice Moore', username: 'alice39', password: 'alicealice', password_confirmation: 'alicealice' }
             ])
 
 Challenge.create([
@@ -13,7 +13,7 @@ Challenge.create([
                  ])
 
 downloaded_image1 = open("https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80.jpg")
-downloaded_image2 = open("https://pixabay.com/get/57e3d140425aa514f6d1867dda35367b1d36dded5b59714d_1920.jpg")
+downloaded_image2 = open("https://images.unsplash.com/photo-1476525223214-c31ff100e1ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80.jpg")
 downloaded_image3 = open("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80.jpg")
 Challenge.find(1).avatar.attach(io: downloaded_image1, filename: 'seed1.jpg')
 Challenge.find(2).avatar.attach(io: downloaded_image2, filename: 'seed2.jpg')
