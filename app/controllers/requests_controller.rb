@@ -2,6 +2,9 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:accept, :reject]
 
   def accept
+    unless is_owner(@challenge)
+      redirect_to show_owner_challenge_path(@challenge), warning: 'You must be the owner of this challenge.'
+    end
     if @request.update(confirmed: true)
       redirect_to show_owner_challenge_path(@challenge), success: 'Successfully accepted.'
     else
@@ -10,6 +13,9 @@ class RequestsController < ApplicationController
   end
 
   def reject
+    unless is_owner(@challenge)
+      redirect_to show_owner_challenge_path(@challenge), warning: 'You must be the owner of this challenge.'
+    end
     if @request.destroy
       redirect_to show_owner_challenge_path(@challenge), success: 'Successfully removed.'
     else
