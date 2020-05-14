@@ -39,12 +39,7 @@ class ApplicationController < ActionController::Base
       challenges = Challenge.all
       num_requests = 0
       challenges.each do |challenge|
-<<<<<<< HEAD
         num_requests += challenge.unconfirmed_requests.length if challenge.owner == current_user
-=======
-        @challenge = challenge
-        num_requests += challenge.unconfirmed_requests.length 
->>>>>>> Refactor tests
       end
       num_requests
     end
