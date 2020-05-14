@@ -45,7 +45,7 @@ Activity.create([
                   { title: 'Dehnen', description: 'Auf gesundes Dehnen achten!', goal: 1000, unit: 'min', challenge: Challenge.find(2) },
                   { title: 'Laufen', description: 'Danach gleich dehnen', goal: 1000, unit: 'km', challenge: Challenge.find(2) },
                   { title: 'Dwi-Chagi', description: 'optional ohne Festhalten', goal: 1000, unit: '', challenge: Challenge.find(2) },
-                  { title: 'Yop-Chagi', description: 'optional ohne Festhalten', goal: 1000, unit: 'km', challenge: Challenge.find(2) },
+                  { title: 'Yop-Chagi', description: 'optional ohne Festhalten', goal: 1000, unit: '', challenge: Challenge.find(2) },
 
                   { title: 'Push-Ups', description: 'nice and slow!', goal: 500, unit: '', challenge: Challenge.find(3) },
                   { title: 'Running', description: '', goal: 500, unit: 'km', challenge: Challenge.find(3) },
