@@ -14,7 +14,7 @@
 {
   text-decoration: none;
   color:  $secondary-color;
-  
+
   transition: all 1.5s ease;
   border: 0.3rem solid $primary-color;
 }
@@ -32,7 +32,7 @@
   height: 32px;
   position: absolute;
   cursor: pointer;
-  opacity: 0; 
+  opacity: 0;
   z-index: 2;
   -webkit-touch-callout: none;
 }
@@ -46,14 +46,14 @@
   margin-bottom: 5px;
   position: relative;
   left:-2.8%;
-  
+
   background: $secondary-color;
   border-radius: 3px;
-  
+
   z-index: 1;
-  
+
   transform-origin: 4px 0px;
-  
+
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               opacity 0.55s ease;
@@ -97,7 +97,7 @@
 	-webkit-font-smoothing: antialiased;
   margin: -14.5vh 0 0 7vw;
   margin-left: 50px;
-  
+
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
@@ -111,7 +111,7 @@
 
 #menuToggle input:checked ~ ul
 {
-  transform: translate(-100%,0);
+  transform: translate(-100vw,0);
 }
 
 .helpTranslate
