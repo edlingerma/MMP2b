@@ -12,6 +12,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag "application" %>
     <%= javascript_pack_tag 'barChart' %>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
     <%= favicon_link_tag asset_path('favicon.png') %>
@@ -47,6 +48,4 @@
   </div>
   <%= render "challenges/footer" %>
   </body>
-
-  <%= javascript_pack_tag "application" %>
 </html>
