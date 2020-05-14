@@ -6,7 +6,7 @@
 
         <div class="challengeContainer">
         <%= link_to(challenge, class: "challenge_img")  do%>
-          <div class="challenge_img" style="background-image: url(<%= challenge.avatar.attached? ? rails_blob_path(challenge.avatar) : asset_path('logo.png') %>)"></div>
+          <div class="challenge_img" style="background-image: url(<%= challenge.avatar.attached? ? polymorphic_url(challenge.avatar.variant(resize: "600")) : asset_path('logo.png') %>)"></div>
         <% end %>
          <%= link_to(challenge, class: "challenge_title") do%>
             <h2 class="subtitle"><%= challenge.title %></h2>
@@ -18,6 +18,16 @@
               <%# <p>...Learn More</p> %>
           <%# <% end%>
           </div>
+          <% unless current_user == nil %>
+            <% if current_user == challenge.owner %>
+              <% if challenge.requests.length > 0 %>
+                <% unconfirmed_requests = challenge.requests.select do |request| %>
+                  <%request.confirmed.nil? %>
+                <% end %>
+                <span class="num_requests_home"><%= unconfirmed_requests.length %></span>
+              <% end %>
+            <% end %>
+          <% end %>
 
       </div>
 

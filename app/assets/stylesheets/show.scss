@@ -12,11 +12,10 @@
 .show_owner-container {
   padding: $space-medium 0;
   margin: $space-medium 0;
-  .subtitle{
-    color: #2E2F30;
-  }
 }
-
+.subtitle{
+  color: #2E2F30;
+}
 .show-header {
   background-color: $primary-color;
   padding: $space-medium;
@@ -27,7 +26,6 @@
 }
 
 .activities {
-  display: flex;
   align-items: center;
   flex-direction: column;
 }

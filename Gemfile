@@ -68,3 +68,5 @@ gem "bulma-rails", "~> 0.8.0"
 gem "azure-storage"
 
 gem 'active_storage_validations'
+
+gem "image_processing"

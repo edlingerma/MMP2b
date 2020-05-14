@@ -1,36 +1,21 @@
 @import "variables";
 
 footer{
-    background-color: $primary-color;
-    color: #FFFFFF;
-    padding: $space-medium;
-    //height:200px;
-    .grid{
-        display: grid;
-        
-        grid-template-columns: auto 30% auto;
+  background-color: $primary-color;
+  color: #FFFFFF;
+  padding: $space-medium;
 
-        p {
-          margin-top: $space-medium;
-        }
+  svg {
+    color: $secondary-color;
+    width: 15vw;
+  }
 
-        .gird-left{
-            grid-column-start: 1;
-            grid-column-end: 2;
-        }
-        .grid-right{
-            grid-column-start: 3;
-            grid-column-end: 4;
-            text-align: center;
-            svg{
-                color: $secondary-color;
-                width: 20%;
-            }
-        }
-    }
-    .highlight{
-        font-weight: bold;
-        color: $secondary-color;
-    }
-    
+  .highlight {
+    font-weight: bold;
+    color: $secondary-color;
+  }
+
+  .column--right {
+    text-align: right;
+  }
 }
