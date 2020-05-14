@@ -3,10 +3,10 @@
 require 'swagger_helper'
 
 RSpec.describe 'Challenges API', type: :request do
-  fixtures :challenges
+  fixtures :challenges, :users
   before {
-    @challenge = challenge(:one)
-    @user = user(:one)
+    @challenge = challenges(:one)
+    @user = users(:one)
   }
   path '/challenges.json' do
     get 'list all the challenges' do
@@ -76,7 +76,7 @@ RSpec.describe 'Challenges API', type: :request do
                }
 
         let(:id) do
-          c = Challenge.create!(title: 'Laufverein Elsbethen', description: 'Jeder ist willkommen!', owner: @user)
+          c = Challenge.create!(title: 'Laufverein Elsbethen', description: 'Jeder ist willkommen!', owner_id: @user.id)
           c.id
         end
 
