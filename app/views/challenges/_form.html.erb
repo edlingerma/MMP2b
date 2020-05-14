@@ -32,12 +32,12 @@
 
   <div class="field">
     <%= form.label :title, class: "label" %>
-    <%= form.text_field :title, placeholder: 'Title',  method: "get", class: "input", type: "text" %>
+    <%= form.text_field :title, placeholder: 'Title',  method: "get", class: "input", type: "text", maxlength: 50 %>
   </div>
 
   <div class="field">
     <%= form.label :description, class: "label" %>
-    <%= form.text_area :description, placeholder: 'Description', method: "get", class: "textarea", type: "text" %>
+    <%= form.text_area :description, placeholder: 'Description', method: "get", class: "textarea", type: "text", maxlength: 240 %>
   </div>
 
   <div class="file field">
