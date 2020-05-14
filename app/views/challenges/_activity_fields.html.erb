@@ -13,15 +13,9 @@
       <div class="field">
           <%= form.label :title, class: "label" %>
           <%= form.text_field :title, placeholder: 'Activity title', class: 'form-control', method: "get", class: "input", type: "text" %>
-          <select name="activity[challenge_id]">
-          <% Activity.all.each do |activity| %>
-            <option value="<%= activity.id %>"><%= activity.title %></option>
-          <% end %>
-          </select>
       </div>
       <div class="field">
           <%= form.label :description, class: "label" %>
-          <%# <textarea class="textarea" placeholder="e.g. Hello world"></textarea> %>
           <%= form.text_area :description, placeholder: 'Activity description', class: 'form-control', method: "get", class: "textarea", type: "text"  %>
       </div>
       
