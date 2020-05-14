@@ -1,13 +1,14 @@
 @import "variables";
 
 footer{
-  background-color: $primary-color;
+  margin-top: 10vh;
+  background-color: #141414;
   color: #FFFFFF;
   padding: $space-medium;
 
   svg {
     color: $secondary-color;
-    width: 15vw;
+    width: 8vw;
   }
 
   .highlight {

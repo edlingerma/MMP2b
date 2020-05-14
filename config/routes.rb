@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       get :request_membership
       get :show_owner
+      get :destroy_confirmation
     end
     collection do
       get :my_challenges

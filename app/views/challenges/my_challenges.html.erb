@@ -1,8 +1,12 @@
 <%= render "hero" %>
 
 <div class="overview">
-  <h1 class="title"> My Challenges</h1>
-  <p>Requests: <%= @num_all_requests%></p>
+
+  <h1 class="title"> My Challenges
+    <% if num_requests > 0 %>
+      <span class="num_requests num_requests--my-challenges"><%= num_requests %></span>
+    <% end %>
+  </h1>
 </div>
 
 <%= render 'home' %>

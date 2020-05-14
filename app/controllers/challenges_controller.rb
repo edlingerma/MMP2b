@@ -1,6 +1,6 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
-  before_action :logged_in, only: [:new, :request_membership, :my_challenges ]
+  before_action :logged_in, only: [:new, :request_membership, :my_challenges]
   helper_method :is_owner, :is_member, :is_candidate
 
   def index
@@ -13,21 +13,10 @@ class ChallengesController < ApplicationController
       @challenge = challenge
       is_member
     end
-
-    @num_all_requests = 0
-    @challenges.each do |challenge|
-      @num_all_requests = challenge.unconfirmed_requests.count
-    end
   end
 
   def show
     @activities = @challenge.activities
-
-    # Get amount of candidates for challenge to notifiy owner
-    requests = @challenge.requests.select do |request|
-      request.confirmed.nil?
-    end
-    @num_requests = requests.length
   end
 
   def show_owner
@@ -93,10 +82,14 @@ class ChallengesController < ApplicationController
   end
 
   def is_owner
+    return false unless current_user
+
     current_user == @challenge.owner
   end
 
   def is_member
+    return false unless current_user
+
     @requests = current_user.requests
     @requests.each do |request|
       if request.challenge == @challenge && request.confirmed

@@ -5,7 +5,7 @@
   display: block;
   position: fixed;
   top: 4vh;
-  left: 93%;
+  left: calc(100% - 50px);
   z-index: 4;
   text-align: center;
 }
@@ -31,14 +31,9 @@
   width: 40px;
   height: 32px;
   position: absolute;
-  top: -7px;
-  left: -7px;
-  
   cursor: pointer;
-  
   opacity: 0; 
-  z-index: 2; 
-  
+  z-index: 2;
   -webkit-touch-callout: none;
 }
 
@@ -101,6 +96,7 @@
 	list-style-type: none;
 	-webkit-font-smoothing: antialiased;
   margin: -14.5vh 0 0 7vw;
+  margin-left: 50px;
   
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }

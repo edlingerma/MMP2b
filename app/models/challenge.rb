@@ -12,6 +12,7 @@ class Challenge < ApplicationRecord
   def unconfirmed_requests
     requests.reject(&:confirmed)
   end
+
   def confirmed_requests
     requests.select do |request|
       request.confirmed && request.user != owner
