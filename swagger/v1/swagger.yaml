@@ -1,0 +1,94 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/challenges.json":
+    get:
+      summary: list all the challenges
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    created_at:
+                      type: date
+                    updated_at:
+                      type: date
+                    owner:
+                      type: string
+                    activities:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                          description:
+                            type: string
+                          goal:
+                            type: integer
+                          progress:
+                            type: integer
+                          unit:
+                            type: string
+                    url:
+                      type: string
+  "/challenges/{id}.json":
+    get:
+      summary: show challenge
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  created_at:
+                    type: date
+                  updated_at:
+                    type: date
+                  owner:
+                    type: string
+                  activities:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        goal:
+                          type: integer
+                        progress:
+                          type: integer
+                        unit:
+                          type: string
+                  url:
+                    type: string
