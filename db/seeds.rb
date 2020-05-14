@@ -34,7 +34,7 @@ Request.create([{ user: User.find(4), challenge: Challenge.find(1), confirmed: t
                ])
 
 Activity.create([
-                               { title: 'Liegestütz', description: 'Dabei nicht durchhängen!', goal: 500, unit: 'km', challenge: Challenge.find(1) },
+                               { title: 'Liegestütz', description: 'Dabei nicht durchhängen!', goal: 500, unit: '', challenge: Challenge.find(1) },
                                { title: 'Kniebeuge', description: '', goal: 1000, unit: '', challenge: Challenge.find(1)  },
                                { title: 'Handstand', description: 'für die Profis unter euch', goal: 60, unit: 'min', challenge: Challenge.find(1) },
                                { title: 'Laufen', description: 'nicht zu schnell', goal: 1000, unit: 'km', challenge: Challenge.find(1) },
