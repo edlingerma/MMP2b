@@ -1,3 +1,6 @@
+// Impressum
+// Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 @import "variables";
 
 * {
@@ -30,4 +33,18 @@ a:hover {
 
 a:active {
   color: $secondary-color;
+}
+
+.centered {
+  text-align: center;
+}
+
+.num_requests {
+  background-color: #FFA500;
+  border-radius: 100%;
+  z-index: 2;
+  text-align: center;
+  user-select: none;
+  position: relative;
+  font-family: "Raleway", sans-serif;
 }

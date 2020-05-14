@@ -1,3 +1,5 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class SessionsController < ApplicationController
   def new
   end
@@ -6,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Logged in!"
+      redirect_to root_url, info: "Logged in!"
     else
       flash.now[:alert] = "Username or password is invalid"
       render "new"
@@ -17,7 +19,7 @@ class SessionsController < ApplicationController
     user = User.find_or_create_with_omniauth(request.env['omniauth.auth'])
     if user
       session[:user_id] = user.id
-      redirect_to root_url, notice: 'Logged in!'
+      redirect_to root_url, info: 'Logged in!'
     else
       flash.now[:alert] = "Username or password is invalid"
       render "new"
@@ -26,6 +28,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Logged out!"
+    redirect_to root_url, info: 'You are logged out now.'
   end
 end

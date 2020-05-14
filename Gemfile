@@ -44,7 +44,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
+
+gem 'rspec-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -66,3 +69,10 @@ gem "bulma-rails", "~> 0.8.0"
 
 # ActiveStorage
 gem "azure-storage"
+
+gem 'active_storage_validations'
+
+gem "image_processing"
+
+# For test of json-API
+gem 'rswag'

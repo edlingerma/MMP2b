@@ -1,3 +1,6 @@
+// Impressum
+// Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 import { Controller } from "stimulus"
 
 export default class extends Controller {

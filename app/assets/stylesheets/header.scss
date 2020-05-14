@@ -1,10 +1,13 @@
+// Impressum
+// Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 @import "variables";
 
 .header{
     top: 0;
-    z-index: 2;
+    z-index: 3;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -34,13 +37,18 @@
             border-color: $primary-color $primary-color $secondary-color $primary-color;
         }
     }
+    &_logo {
+      svg {
+        height: 8vh;
+      }
+    }
     .highlight{
         font-weight: bold;
         color: $secondary-color;
     }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1050px) {
     .header{
         &_item{
             display: none;

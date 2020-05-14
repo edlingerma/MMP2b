@@ -1,0 +1,32 @@
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
+
+<div class="form">
+  <div class="form__box">
+    <div class="form__box--sign">
+      <h1 class="title">Are you really sure?</h1>
+
+      <% if alert %>
+        <article class="message is-danger">
+          <div class="message-body">
+            <p id="alert"><%= alert %></p>
+          </div>
+        </article>
+      <% end %>
+
+      <p class="confirmation">
+        The User can not be restored!
+      </p>
+      <div class="columns centered">
+        <div class="column">
+          <%= button_to 'Delete User', reject_request_path(@request.id), method: 'get', class: 'button is-danger is-outlined button-transition' %>
+        </div>
+        <div class="column">
+          <%= button_to 'Back to Challenge', show_owner_challenge_path(@challenge), method: 'get', class: 'button is-success is-outlined button-transition' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

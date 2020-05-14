@@ -1,6 +1,8 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :request_membership, :show_owner]
-  before_action :logged_in, only: [:new, :request_membership, :my_challenges, :is_member, :is_owner]
+  before_action :set_challenge, only: [:show, :update, :destroy, :request_membership, :show_owner, :edit]
+  before_action :logged_in, only: [:request_membership, :my_challenges, :create, :new]
   helper_method :is_owner, :is_member, :is_candidate
 
   def index
@@ -11,45 +13,28 @@ class ChallengesController < ApplicationController
     @challenges = Challenge.all
     @challenges = @challenges.select do |challenge|
       @challenge = challenge
-      is_member
+      is_member(@challenge)
     end
   end
 
   def show
     @activities = @challenge.activities
-
-    # Get amount of candidates for challenge to notifiy owner
-    requests = @challenge.requests.select do |request|
-      request.confirmed.nil?
-    end
-    @num_requests = requests.length
   end
 
   def show_owner
-    unless is_owner
-      redirect_to @challenge, notice: 'You must be the owner of this challenge.'
-    end
-    @requests = @challenge.requests
-    @unconfirmed_requests = @requests.reject(&:confirmed)
-
-    @confirmed_requests = @requests.select do |request|
-      request.confirmed && request.user != @challenge.owner
+    unless is_owner(@challenge)
+      redirect_to @challenge, warning: 'You must be the owner of this challenge.'
     end
 
-    @entries = []
-    activities = @challenge.activities
-    activities.each do |activity|
-      @entries.concat(activity.entries)
-    end
-    @entries = @entries.sort_by(&:created_at)
-    @entries.reverse!
+    @entries = @challenge.entries.sort_by(&:created_at).reverse!
+  end
+
+  def edit
+
   end
 
   def new
     @challenge = Challenge.new
-  end
-
-  def edit
   end
 
   def create
@@ -58,32 +43,40 @@ class ChallengesController < ApplicationController
     Request.create(user: current_user, challenge: @challenge, confirmed: true)
 
     if @challenge.save
-      redirect_to @challenge, notice: 'Challenge was successfully created.'
+      redirect_to @challenge, success: 'Challenge was successfully created.'
     else
       render :new
     end
   end
 
   def update
+    unless is_owner(@challenge)
+      redirect_to @challenge, warning: 'You must be the owner to edit this challenge.'
+    end
     if @challenge.update(challenge_params)
-      redirect_to @challenge, notice: 'Challenge was successfully updated.'
+      redirect_to @challenge, success: 'Challenge was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
+    unless is_owner(@challenge)
+      redirect_to @challenge, warning: 'You must be the owner to delete this challenge.'
+      return
+    end
     @challenge.destroy
-    redirect_to challenges_url, notice: 'Challenge was successfully destroyed.'
+    redirect_to challenges_url, success: 'Challenge was successfully deleted.'
+    return
   end
 
   def request_membership
     @request = Request.create(challenge: @challenge, user: current_user)
 
     if @request
-      redirect_to @challenge, notice: 'Request was successfully created.'
+      redirect_to @challenge, success: 'Request was successfully created.'
     else
-      redirect_to @challenge, notice: 'Request was NOT successfully created.'
+      redirect_to @challenge, error: 'Oops, there was an error with your request. Please try again.'
     end
   end
 
@@ -99,26 +92,10 @@ class ChallengesController < ApplicationController
     params.require(:challenge).permit(:title, :description, :avatar, activities_attributes: [:_destroy, :id, :title, :description, :goal, :unit])
   end
 
-  def is_owner
-    current_user == @challenge.owner
-  end
-
-  def is_member
-    @requests = current_user.requests
-    @requests.each do |request|
-      if request.challenge == @challenge && request.confirmed
-        return true
-      end
-    end
-    false
-  end
-
   def is_candidate
-    requests = @challenge.requests
+    requests = @challenge.unconfirmed_requests
     requests.each do |request|
-      if request.user == current_user
-        return true
-      end
+      return true if request.user == current_user
     end
     false
   end

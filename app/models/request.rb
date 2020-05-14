@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 class Request < ApplicationRecord
   belongs_to :user
   belongs_to :challenge

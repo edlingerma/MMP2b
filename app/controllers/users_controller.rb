@@ -1,3 +1,5 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Successfully registered!"
+      redirect_to root_url, success: "Successfully registered!"
     else
       flash.now[:alert] = "Unknown error!"
       render "new"
@@ -16,7 +18,6 @@ class UsersController < ApplicationController
 
   private
 
-  # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:username, :name, :password, :password_confirmation)
   end

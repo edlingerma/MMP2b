@@ -1,16 +1,33 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
+
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <article class="message is-danger" id="error_explanation">
+        <div class="message-header">
+          <p><%= pluralize(user.errors.count, "error") %> prohibited this sign up:</p>
+        </div>
+        <div class="message-body">
+          <div class="content">
+            <ul>
+              <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </article>
   <% end %>
+  <div class="field is-grouped is-grouped-centered">
+    <%= link_to '/auth/facebook' do %>
+      <button class="loginBtn loginBtn--facebook">
+        Sign up with Facebook
+      </button>
+    <% end  %>
+  </div>
 
+<%= form_with(model: user, local: true) do |form| %>
   <div class="field">
     <%= form.label :username, class: "label" %>
     <%= form.text_field :username, method: "get", class: "input", type: "text" %>
@@ -30,7 +47,7 @@
     <%= form.label :password_confirmation, class: "label" %>
     <%= form.password_field :password_confirmation, method: "get", class:"input", type:"password"  %>
   </div>
-  <div class="field is-grouped is-grouped-centered">
+  <div class="field is-grouped is-grouped-centered" >
     <div class="actions">
       <%= submit_tag "Sign up", method: "get", class: "button is-primary"  %>
     </div>

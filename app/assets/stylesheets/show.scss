@@ -1,3 +1,6 @@
+// Impressum
+// Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 @import "variables";
 
 .button-transition {
@@ -7,19 +10,32 @@
 .show-container {
   padding: $space-medium;
   margin: $space-medium;
+
+  &__list {
+    &--entries {
+      @media screen and (min-width: 1000px){
+        margin-left: $space-large;
+      }
+    }
+  }
 }
 
 .show_owner-container {
   padding: $space-medium 0;
   margin: $space-medium 0;
-  .subtitle{
-    color: #2E2F30;
+
+  h2 {
+    color: #000000;
   }
 }
-
+.subtitle{
+  color: #2E2F30;
+}
 .show-header {
   background-color: $primary-color;
   padding: $space-medium;
+  width: 100vw;
+  margin-left: 0;
 
   .column {
     text-align: center;
@@ -27,43 +43,45 @@
 }
 
 .activities {
-  display: flex;
   align-items: center;
   flex-direction: column;
+
+  &__col {
+    padding-bottom: $space-large;
+    padding-top: $space-large;
+  }
 }
 
 .activity {
   text-align: center;
-  margin-bottom: $space-large;
+
   .subtitle{
     color: #2E2F30;
   }
-}
 
-.num_requests {
-  background-color: #FFA500;
-  border-radius: 100%;
-  position: relative;
-  left: calc(50% + 73px);
-  top: 10px;
-  z-index: 2;
-  display: block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 1.2;
-  user-select: none;
+  input {
+    margin-top: $space-medium;
+  }
 }
 
 .description {
-  padding: $space-small;
   @media screen and (max-width: 720px){
     word-wrap: break-word;
   }
-  
 }
 
 .progressbar {
   display: flex;
   justify-content: space-between;
+}
+
+.num_requests {
+  &--show {
+    left: calc(50% + 73px);
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 1.2;
+    display: block;
+  }
 }

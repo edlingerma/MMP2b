@@ -1,3 +1,8 @@
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
+
 <div class="form">
   <div class="form__box">
     <div class="form__box--sign">
@@ -9,7 +14,15 @@
           </button>
         <% end  %>
       </div>
-      <p id="alert"><%= alert %></p>
+
+      <% if alert %>
+        <article class="message is-danger">
+          <div class="message-body">
+            <p id="alert"><%= alert %></p>
+          </div>
+        </article>
+      <% end %> 
+
         <%= form_tag sessions_path do |form| %>
           <div class="field">
             <%= label_tag :username, "Username", class: "label" %>

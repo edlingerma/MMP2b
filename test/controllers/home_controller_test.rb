@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest

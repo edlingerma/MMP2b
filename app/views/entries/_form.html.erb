@@ -1,33 +1,41 @@
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
+
 <%= form_with(model: entry, local: true) do |form| %>
+
   <% if entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
-
-      <ul>
-        <% entry.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <article class="message is-danger" id="error_explanation">
+      <div class="message-header">
+        <p><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</p>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% entry.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </article>
   <% end %>
-
 
   <%= form.label :amount, "How much do you want to contribute?", class: "label"%>
 
-  <small>
     <div class="field has-addons">
       <div class="control">
         <div class="field">
             <%= form.text_field :amount, class: 'form-control', method: "get", class: "input", type: "text" %> 
         </div>
       </div>
-      <div class="control">
-        <a class="button is-static">
-          <%= @activity.unit %>
-        </a>
-      </div>
+      <% if @activity.unit != "" %>
+        <div class="control">
+          <a class="button is-static">
+            <%= @activity.unit %>
+          </a>
+        </div>
+      <% end %>
     </div>
-  </small>
 
   <div class="field">
     <%= form.hidden_field :activity_id %>

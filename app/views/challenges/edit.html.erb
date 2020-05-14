@@ -1,9 +1,10 @@
-<div class="newchallange">
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
 
+<div class="newchallange">
 
 <h1 class="title">Editing Challenge</h1>
 
 <%= render 'form', challenge: @challenge, buttonText: "Save"  %>
-
-<%= link_to 'Show', @challenge %> |
-<%= link_to 'Back', show_owner_challenge_path %>

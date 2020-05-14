@@ -1,3 +1,7 @@
+// Impressum
+// Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -74,4 +78,36 @@ color: #FFF;
 .pushdown{
     padding-top: 10vh;
     min-height: calc(100vh - 200px);
+}
+
+// notification
+.notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.25rem;
+    top: 0;
+    margin: 0;
+    position: absolute;
+    width:100vw;
+    animation: slide;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+    max-height: 10vh;
+}
+
+@keyframes slide {
+    0% {
+        /* Eigenschaften zum Beginn der Animation */
+        top: 0;
+    }
+    20%, 80% {
+        /* Eigenschaften von 1/4 bis 3/4 der Animation */
+        top: 10vh;
+    }
+    100% {  
+        /* Eigenschaften zum Ende der Animation */   
+        top: -50vh;
+    }
 }

@@ -1,11 +1,18 @@
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mmp2b</title>
+    <title>Remote Athlete</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'barChart' %>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap" rel="stylesheet">
     <%= favicon_link_tag asset_path('favicon.png') %>
 
@@ -13,9 +20,33 @@
 
   <body>
   <%= render "challenges/header" %>
+  
+  <% if info %>
+    <div class="notification is-info notice">
+      <p id="info"><%= info %></p>
+    </div>
+  <%end%>
+  <% if error %>
+    <div class="notification is-danger notice">
+      <p id="error"><%= error %></p>
+    </div>
+  <%end%>
+  <% if warning %>
+    <div class="notification is-warning notice">
+      <p id="warning"><%= warning %></p>
+    </div>
+  <%end%>
+  <% if success %>
+    <div class="notification is-success notice">
+      <p id="success"><%= success %></p>
+    </div>
+  <%end%>
+
   <div class="pushdown">
     <%= yield %>
   </div>
   <%= render "challenges/footer" %>
   </body>
+
+  <%= javascript_pack_tag "application" %>
 </html>

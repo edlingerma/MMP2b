@@ -1,3 +1,6 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.

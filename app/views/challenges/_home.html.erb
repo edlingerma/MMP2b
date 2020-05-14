@@ -1,41 +1,32 @@
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
 
 <div class="blurr">
+  <div class="columns is-multiline is-centered">
+   <% @challenges.each do |challenge| %>
+      <div class="column is-half challengeWrapper">
+        <div class="challengeContainer">
 
-<div class="columns is-multiline is-centered">
- <% @challenges.each do |challenge| %>
- 
-    <div class="column is-two-fifths"> 
-    
-    <%# // nächste größe : is-two-fifths und is-four-fifths %>
-    
-    <div class="challengeContainer">
-    <%= link_to(challenge, class: "challenge_img")  do%>  
-      <div class="challenge_img">
-        <%= image_tag challenge.avatar if challenge.avatar.attached? %>
-        <%= image_tag("logo.png") unless challenge.avatar.attached? %>
+           <%= link_to(challenge, class: "challenge_img")  do%>
+            <div class="challenge_img" style="background-image: url(<%= challenge.avatar.attached? ? polymorphic_url(challenge.avatar.variant(resize: "600")) : asset_path('logo.png') %>)"></div>
+           <% end %>
+
+           <%= link_to(challenge, class: "challenge_title") do%>
+              <h2 class="subtitle"><%= challenge.title %></h2>
+           <% end %>
+            <% if current_user == challenge.owner %>
+              <% if challenge.unconfirmed_requests.length > 0 %>
+                <span class="num_requests num_requests--home"><%= challenge.unconfirmed_requests.length %></span>
+              <% end %>
+            <% end %>
+           <%= link_to(challenge, class: "challenge_descp") do%>
+              <p class="description"><%= challenge.description %></p>
+           <% end%>
+
+        </div>
       </div>
-    <% end%>
-     <%= link_to(challenge, class: "challenge_title") do%>
-        <h2 class="subtitle"><%= challenge.title %></h2>
-     <% end %>
-     <%= link_to(challenge, class: "challenge_descp") do%>
-        <p><%= challenge.description %></p>
-     <% end%>
-      <%# <%= link_to(challenge, class: "challenge_button") do%>
-          <%# <p>...Learn More</p> %>
-      <%# <% end%>
-      </div>
-      
-    </div>
-    
-  <% end %>
-</div>
-
-<br>
-
-<%= link_to 'New Challenge', new_challenge_path %>
-<% if current_user %>
-  <%= link_to 'My Challenges', my_challenges_challenges_path %>
-<% end %>
-<%= link_to 'Home', root_path %>
+    <% end %>
+  </div>
 </div>

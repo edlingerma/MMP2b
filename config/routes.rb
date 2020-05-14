@@ -1,8 +1,14 @@
+# Impressum
+# Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
+
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   resources :challenges do
     member do
       get :request_membership
       get :show_owner
+      get :destroy_confirmation
     end
     collection do
       get :my_challenges
@@ -13,6 +19,7 @@ Rails.application.routes.draw do
     member do
       get :accept
       get :reject
+      get :remove_confirmation
     end
   end
 

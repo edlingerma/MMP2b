@@ -1,3 +1,8 @@
+<%# 
+ Impressum
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+%>
+
 <div id="menuToggle">
     <input type="checkbox" />
         <span></span>
@@ -19,9 +24,25 @@
         </ul>
 </div>
 <header class="header">
-            <div class="header_item"><%= link_to 'Home', root_path %></div>
+            <div class="header_logo">
+              <%= link_to root_path do %>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 323 161" width="323" height="161">
+                  <defs>
+                    <image width="261" height="124" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQUAAAB8AQMAAABaAjdvAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA/91X2mbyJwAAAAJ0Uk5TAP9bkSK1AAADaElEQVR4nM3YvXLUMBAAYAkxqEMtnV6DTq9ESSczKdIwwyspUFDmEaJUlHiGxjNotOyuZJ99luyDoYgTiHP+bEvaH99FiN7mAEL3IG0aAPKhwEscX0QSgOlAGBZwdpOj25SbAIxdoatIZ8M4GAgOIwrhDwZSVkuz6w10LLC3IgpgoJ+2O1RTj6juUO28EPVa+83Nc3C9yfj54rY3mSUzdGcycnld9qZ7iVgvdj5waGhvPw5DL7mBJkrn2yCu14SFXTLZDOI6fCze0jyBlkvTxeJevOab0KFX+/CZWKe55HpHlDTMRaSWsCUJBxJmW3u2iFU1gGoKurkqswDZEpJPdzxGkCDMJLyJuHx2wkODHfF0Oq+kGgmXhXeTH3GHhEs16pIdCUwY7xO+CEACA6HLOnoW9AWD5/UB+MTfeJeBZ5QWEUgkOYtBlniaqQi5Eg8AdzSPMkE9zsJF/wt+JJVdcFFlTKCPJTpVqGyjf4a7rJKLLurkgvhQVidWkVAEhLSDYrJhvYYszOgHFHisCDpVzSHFUVQht8LOFYlCN4Wfs4/EdBGji4aFXNop374h1NLnesIsfQ5zrCnsnISUp01x6fwkcNRrwZNYX2NqCgP0XcS4F3h1nUTNcTzaFArDWmcLoSkk/nt/LHCU74qgQGAU1rPdFJAAey7GM2H+h5gwLnEbl7AResIci6scK5HD2IVZpCtRs3BpxyjUToSNUCuxqZe5YXMhVVFrroplHCioKllg3dpSlbjZoQpJtV8FxsyW2sfNiLUILORGvLkIsRKD5Q6zWTFBjWtgQY8Sw33sWlCnY4GdTeOv+Ur4YHMV2NkUlP623fS42sFmGnfihW4YuPqk+ldhhlnY1mFcNRNuF64lcM1firBnYjgRmGGQ7WM0EQsNJtXIJRYwGmyQ+Agy+7eFVWC7oKpIdv+2cC2+QWq8LawCC9l1hIGA4jeJp2eY/FNsCJztMzWDL9HTe46d+EnigYTpiEcWGQ/r8RaRdUPEKqAj7F+I/O/i+3IXQNH43GDvLyI2hbsfX5jAfuhF42Oju5tOhIfbBZwLHZurfotISwa1BWyF34sst2KfpyS+FoHV8Bn/awlg4XDVk9+v+loE36hKfNRlU4SF4Bq1zyKzwOedbQpBz2cSmj4s6ObfBOQ0/9CR9v8A51Sxlfry2rsAAAAASUVORK5CYII="/>
+                  </defs>
+                  <style>
+                    tspan { white-space:pre }
+                  </style>
+                  <use id="Background" href="#img1" x="31" y="13" />
+                </svg>
+              <% end %>
+            </div>
             <% if current_user %>
-              <div class="header_item"><%= link_to 'My Challenges', my_challenges_challenges_path %></div>
+              <div class="header_item"><%= link_to 'My Challenges', my_challenges_challenges_path %>
+                <% if num_requests > 0 %>
+                  <span class="num_requests num_requests--navbar"><%= num_requests %></span>
+                <% end %>
+              </div>
             <% end %>
             <div class="header_item"><%= link_to 'New Challenge', new_challenge_path %></div>
             <% if current_user %>
@@ -32,5 +53,3 @@
                 <%= link_to "Log In", login_path %></div>
             <% end %> 
 </header>
-
-<% #TODO Refactor mutiple files%>
