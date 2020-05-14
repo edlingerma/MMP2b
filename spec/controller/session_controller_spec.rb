@@ -2,26 +2,32 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :request do
 
-    # let(:valid_attributes) {
-    #     { :title => "Test title!", :description => "This is a test description", :status => "draft" }
-    # }
-    describe "Create new session" do
+    let!(:user) { User.create(name: "Any name", username: "anyname", password: "1", password_confirmation: "1") }
 
-        let!(:user) { User.create(name: "Any name", password: "1", password_confirmation: "1") }
-            
-        # before(:each) do
-        #     post :create, :params => { :user => { :id => 1, :name => "Any Name", :password => "1", :password_confirmation => "1", username: "1" } }
-        # end
-
+    describe "Log in: Create new session" do
+       
         it "Invalid password" do
-            post  sessions_path , :params => {  username: "Any Name", password: "564651"  }
-            should set_the_flash[:alert].to('Username or password is invalid')
+            post sessions_path, :params => {  username: "anyname", password: "564651"  }
+            expect(flash[:alert]).to match("Username or password is invalid")
+            expect(sessions_path).to render_template("new")
         end
 
-        it "password is ok" do
-            post  sessions_path  , :params => { username: "Any Name", password: "1" }
-            should respond_with(:redirect)
-            should redirect_to(root_url)
+        it "password and username correct" do
+            post sessions_path , :params => { username: "anyname", password: "1" }
+            expect(flash[:info]).to match("Logged in!")
+            should redirect_to root_url
+        end
+    end
+
+    describe "Log in with Oauth" do
+        
+    end
+
+    describe "Log out: Destroy session" do
+        it "log the current user out" do
+            delete session_path('1')
+            expect(flash[:info]).to match("You are logged out now.")
+            should redirect_to root_url
         end
     end
 end
