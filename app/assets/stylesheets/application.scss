@@ -87,6 +87,7 @@ color: #FFF;
     animation: slide;
     animation-duration: 7s;
     animation-fill-mode: forwards;
+    max-height: 10vh;
 }
 
 @keyframes slide {
