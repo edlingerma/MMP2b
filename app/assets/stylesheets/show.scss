@@ -59,21 +59,6 @@
   }
 }
 
-.num_requests {
-  background-color: #FFA500;
-  border-radius: 100%;
-  position: relative;
-  left: calc(50% + 73px);
-  top: 10px;
-  z-index: 2;
-  display: block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 1.2;
-  user-select: none;
-}
-
 .description {
   @media screen and (max-width: 720px){
     word-wrap: break-word;
@@ -83,4 +68,14 @@
 .progressbar {
   display: flex;
   justify-content: space-between;
+}
+
+.num_requests {
+  &--show {
+    left: calc(50% + 73px);
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 1.2;
+  }
 }

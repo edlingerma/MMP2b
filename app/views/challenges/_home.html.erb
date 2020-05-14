@@ -3,6 +3,7 @@
    <% @challenges.each do |challenge| %>
       <div class="column is-half challengeWrapper">
         <div class="challengeContainer">
+
            <%= link_to(challenge, class: "challenge_img")  do%>
             <div class="challenge_img" style="background-image: url(<%= challenge.avatar.attached? ? polymorphic_url(challenge.avatar.variant(resize: "600")) : asset_path('logo.png') %>)"></div>
            <% end %>
@@ -10,16 +11,18 @@
            <%= link_to(challenge, class: "challenge_title") do%>
               <h2 class="subtitle"><%= challenge.title %></h2>
            <% end %>
+            <% if current_user == challenge.owner %>
+              <% if challenge.unconfirmed_requests.length > 0 %>
+                <span class="num_requests num_requests--home"><%= challenge.unconfirmed_requests.length %></span>
+              <% end %>
+            <% end %>
+
 
            <%= link_to(challenge, class: "challenge_descp") do%>
               <p class="description"><%= challenge.description %></p>
            <% end%>
+
         </div>
-          <% if current_user == challenge.owner %>
-            <% if challenge.unconfirmed_requests.length > 0 %>
-              <span class="num_requests_home"><%= challenge.unconfirmed_requests.length %></span>
-            <% end %>
-          <% end %>
       </div>
     <% end %>
   </div>

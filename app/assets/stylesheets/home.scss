@@ -7,7 +7,7 @@
 .challengeContainer{
     margin: $space-medium;
     display: grid;
-    grid-template-columns: auto 20% 20%;
+    grid-template-columns: auto 20% 20% 0;
     grid-template-rows: 150px auto;
     border-radius: 1.5rem/2rem;
     overflow: hidden;
@@ -37,23 +37,18 @@
       cursor: pointer;
     }
   }
-  .num_requests_home{
-    background-color: #FFA500;
-    border-radius: 100%;
-    position: relative;
-    left: 89%;
-    top: -74%;
-    z-index: 2;
-    display: block;
-    width: 3rem;
-    height: 3rem;
-    text-align: center;
-    user-select: none;
-    font-size: 32px;
-    line-height: 1.3;
-    
+  .num_requests{
+    &--home {
+      right: 38px;
+      top: 8px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 20px;
+    }
   }
-  
+
+
   .challenge_img{
     background-color: #ffffff;
     object-fit: cover;
@@ -69,13 +64,14 @@
 
     }
   }
-  
+
   .challenge_title{
     display: inline-grid;
     justify-items: center;
     align-items: center;
     background-color: $primary-color;
-    grid-row-start:1;
+    grid-row-start: 1;
+    grid-row-end: 3;
     grid-column-start:2;
     grid-column-end: 4;
     text-align: center;
@@ -88,7 +84,7 @@
       color: $secondary-color;
     }
   }
-  
+
   .challenge_descp{
     grid-column-start:1;
     grid-column-end:4;
@@ -101,26 +97,13 @@
       word-wrap: break-word;
     }
   }
-  
+
   .blurr{
-      
+
     background: rgb(1,35,64);
     background: linear-gradient(180deg, rgba(1,35,64,1) 0%, rgba(217,227,233,1) 80%, rgba(255,255,255,1) 100%);
   }
-  @media screen and (max-width: 764px){
-    
-    .num_requests_home{
-      display: none; 
-      // #TODO: Bug mit einer zeile behebn
-    }
-  
-}
-  @media screen and (max-width: 1300px){
-      .num_requests_home{
-        left: 83%;
-      }
-  }
- 
+
  
 
 
