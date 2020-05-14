@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :name, presence: true
   validates :username, :name, length: { maximum: 50 }
-  validates :password, length: {:within => 6..40}
   has_many :requests
   has_many :entries
   has_many :challenges, :through => :requests

@@ -46,13 +46,5 @@ RSpec.describe(User, type: :model) do
       u = User.create( username: 'user3', name: toolongstring, password: password, password_confirmation: password)
       expect(u).to be_invalid
     end
-    it('too short password') do
-      u = User.create( username: 'user4', name: 'user', password: 'foo', password_confirmation: 'foo')
-      expect(u).to be_invalid
-    end
-    it('too long password') do
-      u = User.create( username: 'user4', name: 'user', password: toolongstring, password_confirmation: toolongstring)
-      expect(u).to be_invalid
-    end
   end
 end
