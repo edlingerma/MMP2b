@@ -5,13 +5,13 @@
     <h2 class="subtitle"><%= @challenge.description %></h2>
   </div>
   <div class="column">
-    <% if is_owner %>
+    <% if is_owner(@challenge) %>
       <% if @challenge.unconfirmed_requests.length > 0 %>
         <span class="num_requests num_requests--show"><%= @challenge.unconfirmed_requests.length %></span>
       <% end %>
       <%= button_to 'Manage Challenge', show_owner_challenge_path, method: 'get', class: 'button is-warning is-outlined button-transition' %>
     <% end %>
-    <% unless is_candidate %>
+    <% unless is_candidate || is_member(@challenge) %>
       <%= button_to 'Join Challenge', request_membership_challenge_path, method: 'get', class: 'button is-warning is-outlined button-transition' %>
     <% end %>
   </div>
@@ -23,7 +23,7 @@
         <div class="column is-one-fifth activity">
           <h3 class="subtitle"><%= activity.title %></h3>
           <p class="description"><%= activity.description %></p>
-          <% if current_user && is_member && activity.amount < activity.goal %>
+          <% if is_member(@challenge) && activity.amount < activity.goal %>
             <%= button_to 'Contribute', new_entry_path, params: { activity_id: activity.id }, method: 'get', class: 'button is-primary button-transition'%>
           <% end %>
         </div>
@@ -36,7 +36,6 @@
         </div>
         <%= javascript_tag "insertBar('#{activity.amount}', #{activity.amount / activity.goal.to_f}, #{i})" %>
       </article>
-      <!-- Dont place separator after last acitivity -->
       <% unless i == @activities.length - 1 %>
         <hr/>
       <% end %>

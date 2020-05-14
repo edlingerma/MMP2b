@@ -10,9 +10,8 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.user = current_user
-    unless is_member
+    unless is_member(@entry.activity.challenge)
       redirect_to @entry.activity.challenge, warning: 'You must be a member of this challenge.'
-      return
     end
     if @entry.activity.goal < @entry.activity.amount + @entry.amount
       @entry.amount = @entry.activity.goal - @entry.activity.amount
@@ -21,7 +20,7 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to @entry.activity.challenge, success: 'Entry was successfully confirmed.'
     else
-      redirect_to @entry.activity.challenge, error: 'Oops, there was an error with your entry. Please try again.'
+      redirect_to @entry.activity.challenge, error: 'Oops, there was an error with your entry. Did you enter a valid number? Please try again.'
     end
   end
 
@@ -29,15 +28,5 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(:amount, :activity_id)
-  end
-
-  def is_member
-    @requests = current_user.requests
-    @requests.each do |request|
-      if request.challenge == @entry.activity.challenge && request.confirmed
-        return true
-      end
-    end
-    false
   end
 end
