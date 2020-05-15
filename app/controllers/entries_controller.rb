@@ -17,7 +17,7 @@ class EntriesController < ApplicationController
       return
     end
 
-    unless @entry.amount && @entry.amount > 1
+    unless @entry.amount && @entry.amount >= 1
       redirect_to @entry.activity.challenge, warning: 'Did you enter a valid number?'
       return
     end
