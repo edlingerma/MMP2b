@@ -13,4 +13,5 @@ class Activity < ApplicationRecord
       sum + entry.amount
     end
   end
+  validates :goal, numericality: { greater_than_or_equal_to: :amount }, on: :update
 end
