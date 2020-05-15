@@ -29,6 +29,8 @@
     a{
       text-decoration: none;
       color: white;
+      word-wrap: break-word;
+      overflow: hidden;
       &:visited{
         color: white;
       }
@@ -120,6 +122,7 @@
       color: $primary-color;
       word-wrap: break-word;
     }
+
   }
 
   .blurr{

@@ -14,7 +14,14 @@ class EntriesController < ApplicationController
     @entry.user = current_user
     unless is_member(@entry.activity.challenge)
       redirect_to @entry.activity.challenge, warning: 'You must be a member of this challenge.'
+      return
     end
+
+    unless @entry.amount && @entry.amount >= 1
+      redirect_to @entry.activity.challenge, warning: 'Did you enter a valid number?'
+      return
+    end
+
     if @entry.activity.goal < @entry.activity.amount + @entry.amount
       @entry.amount = @entry.activity.goal - @entry.activity.amount
     end
