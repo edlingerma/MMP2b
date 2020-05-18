@@ -1,6 +1,7 @@
 # Impressum
 # Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class EntriesController < ApplicationController
+  before_action :set_entry, only: [:destroy]
   before_action :logged_in, only: [:create, :new]
 
   def new
@@ -33,7 +34,20 @@ class EntriesController < ApplicationController
     end
   end
 
+  def destroy
+    unless is_owner(@entry.activity.challenge)
+      redirect_to @entry.activity.challenge, warning: 'You must be the owner to delete this entry.'
+      return
+    end
+    @entry.destroy
+    redirect_to show_owner_challenge_path(@entry.activity.challenge), success: 'Entry was successfully deleted.'
+  end
+
   private
+
+  def set_entry
+    @entry = Entry.find(params[:id])
+  end
 
   def entry_params
     params.require(:entry).permit(:amount, :activity_id)
