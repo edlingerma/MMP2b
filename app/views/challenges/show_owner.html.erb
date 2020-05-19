@@ -48,12 +48,12 @@
     <% else %>
     <section class="show-container__list list">
       <table class="table is-hoverable is-fullwidth">
-          <thead>
-            <tr>
-              <th>User</th>
-              <td>Remove from Challenge</td>
-            </tr>
-          </thead>
+        <thead>
+        <tr>
+          <th>User</th>
+          <td>Remove from Challenge</td>
+        </tr>
+        </thead>
           <% @challenge.confirmed_requests.each do |request| %>
           <tbody>
             <tr>
@@ -83,12 +83,17 @@
   <% if @entries.length == 0 %>
     <p>There are currently no entries in the challenge</p>
   <% else %>
-    <section class="show-container__list--entries list">
+    <section class="show-container__list--entries">
+      <table class="table is-hoverable">
       <% @entries.each do |entry| %>
-        <p class="list-item">
-          <%= "#{entry.created_at}: #{entry.user.name} contributed #{entry.amount} #{entry.activity.unit} to Activity #{entry.activity.title}" %>
-        </p>
+          <tbody>
+            <tr>
+              <td><%= "#{entry.created_at}: #{entry.user.name} contributed #{entry.amount} #{entry.activity.unit} to Activity #{entry.activity.title}" %></td>
+              <td><%= link_to 'remove', entry_path(entry.id), method: 'delete' %></td>
+            </tr>
+          </tbody>
       <% end %>
+      </table>
     </section>
   <% end %>
 </section>

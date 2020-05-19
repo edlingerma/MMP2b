@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :entries do
     member do
       get :new
+      get :destroy
       post :create
     end
   end
