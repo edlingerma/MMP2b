@@ -1,7 +1,7 @@
 # Impressum
 # Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 
-class Challenge < ApplicationRecord
+class Challenge < ActiveRecord::Base
   belongs_to :owner, class_name: 'User'
   has_many :requests, dependent: :destroy
   has_many :users, through: :requests
@@ -12,7 +12,7 @@ class Challenge < ApplicationRecord
   validates :description, length: { maximum: 240 }
   validates :title, length: { maximum: 50 }
   has_one_attached :avatar
-  validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+  validates :avatar, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'must be a JPEG or PNG' }
   def unconfirmed_requests
     requests.reject(&:confirmed)
   end
