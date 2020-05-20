@@ -28,7 +28,7 @@
             <%= form.text_field :amount, class: 'form-control', method: "get", class: "input", type: "text", placeholder: '0' %>
         </div>
       </div>
-      <% if activity.unit != "" %>
+      <% if activity.unit? %>
         <div class="control">
           <a class="button is-static">
             <%= activity.unit %>
