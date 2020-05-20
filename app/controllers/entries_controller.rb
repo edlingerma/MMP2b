@@ -13,25 +13,10 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.user = current_user
-    unless is_member(@entry.activity.challenge)
-      redirect_to @entry.activity.challenge, warning: 'You must be a member of this challenge.'
-      return
-    end
-
-    unless @entry.amount && @entry.amount >= 1
-      redirect_to @entry.activity.challenge, warning: 'Did you enter a valid number?'
-      return
-    end
-
-    if @entry.activity_goal < @entry.activity_amount + @entry.amount
-      @entry.amount = @entry.activity_goal - @entry.activity_amount
-    end
-
-    if @entry.save
-      redirect_to @entry.activity.challenge, success: 'Entry was successfully confirmed.'
-    else
-      redirect_to @entry.activity.challenge, error: 'Oops, there was an error with your entry. Did you enter a valid number? Please try again.'
-    end
+    check_membership
+    check_valid_number(@entry.amount)
+    calculate_amount
+    check_save(@entry)
   end
 
   def destroy
@@ -51,5 +36,34 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(:amount, :activity_id)
+  end
+
+  def check_membership
+    unless is_member(@entry.activity.challenge)
+      redirect_to @entry.activity.challenge, warning: 'You must be a member of this challenge.'
+      return
+    end
+  end
+
+  def calculate_amount
+    temp = @entry.activity_goal - @entry.activity_amount
+    if @entry.amount > temp
+      @entry.amount = temp
+    end
+  end
+
+  def check_valid_number(number)
+    unless number && number >= 1
+      redirect_to @entry.activity.challenge, warning: 'Did you enter a valid number?'
+      return
+    end
+  end
+
+  def check_save(entry)
+    if entry.save
+      redirect_to entry.activity.challenge, success: 'Entry was successfully confirmed.'
+    else
+      redirect_to entry.activity.challenge, error: 'Oops, there was an error with your entry. Did you enter a valid number? Please try again.'
+    end
   end
 end
