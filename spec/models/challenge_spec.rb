@@ -29,7 +29,7 @@ RSpec.describe(Challenge, type: :model) do
       expect(c).to be_invalid
     end
     it('no new challenge with too long title') do
-      c = Challenge.create(title: toolongtitle, description: description,owner: users(:one))
+      c = Challenge.create(title: toolongtitle, description: description, owner: users(:one))
       expect(c).to be_invalid
     end
   end

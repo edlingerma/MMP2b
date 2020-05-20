@@ -7,4 +7,4 @@ module FormHelpers
     fill_in 'user_password_confirmation', with: password
     find('input[name="commit"]').click
   end
-  end
+end
