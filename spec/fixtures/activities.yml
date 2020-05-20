@@ -1,0 +1,13 @@
+one:
+  title: Activity1
+  description: Erste Activity
+  unit: km
+  goal: 100
+  challenge_id: 1
+
+two:
+  title: Activity1
+  description: Erste Activity
+  unit: km
+  goal: 100
+  challenge_id: 1
