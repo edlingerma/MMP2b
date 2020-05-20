@@ -58,7 +58,7 @@
           <tbody>
             <tr>
               <th><%= request.user_name %></th>
-              <td><%= link_to 'remove', remove_confirmation_request_path(request.id) %></td>
+              <td><%= link_to 'remove', "/confirmations/request/#{request.id}/#{@challenge.id}" %></td>
             </tr>
           </tbody>
         <% end %>
@@ -73,7 +73,7 @@
         <%= button_to 'Edit Challenge', edit_challenge_path, method: 'get', class: 'button is-success is-outlined button-transition' %>
       </section>
       <section class="column">
-        <%= button_to 'Delete Challenge', destroy_confirmation_challenge_path, method: 'get', class: 'button is-danger is-outlined button-transition' %>
+        <%= button_to 'Delete Challenge', "/confirmations/challenge/#{@challenge.id}/#{@challenge.id}", method: 'get', class: 'button is-danger is-outlined button-transition' %>
       </section>
     </section>
   </section>

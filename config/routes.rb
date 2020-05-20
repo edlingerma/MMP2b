@@ -8,18 +8,16 @@ Rails.application.routes.draw do
     member do
       get :request_membership
       get :show_owner
-      get :destroy_confirmation
     end
     collection do
       get :my_challenges
     end
   end
 
-  resources :requests, only: %i[accept reject remove_confirmation] do
+  resources :requests, only: %i[accept reject] do
     member do
       get :accept
       get :reject
-      get :remove_confirmation
     end
   end
 
@@ -29,6 +27,10 @@ Rails.application.routes.draw do
       get :destroy
       post :create
     end
+  end
+
+  controller :confirmations do
+    match 'confirmations/:type/:id/:challenge_id', to: 'confirmations#show', via: %i[get]
   end
 
   root 'challenges#index'

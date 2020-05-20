@@ -1,7 +1,7 @@
 # Impressum
 # Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:accept, :reject, :remove_confirmation]
+  before_action :set_request, only: [:accept, :reject]
 
   def accept
     unless is_owner(@challenge)
@@ -29,9 +29,6 @@ class RequestsController < ApplicationController
       redirect_to show_owner_challenge_path(@challenge), error: 'Oops, there was a problem with your rejection. Please try again.'
       return
     end
-  end
-
-  def remove_confirmation
   end
 
   private
