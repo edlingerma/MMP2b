@@ -4,11 +4,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyString
+  title: Challenge1
+  description: Erste Challenge
   owner_id: 1
 
 two:
-  title: MyString
-  description: MyString
+  title: Challenge2
+  description: Zweite Challenge
   owner_id: 1
