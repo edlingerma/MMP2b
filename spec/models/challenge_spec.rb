@@ -11,24 +11,24 @@ RSpec.describe(Challenge, type: :model) do
   toolongdescription = 'a' * 241
   toolongtitle = 'a' * 51
 
-  describe "Create a new challange" do
+  describe "Create a new challenge" do
     it('correct input') do
       c = Challenge.create(title: title, description: description, owner: users(:one))
       expect(c).to be_valid
     end
-    it('no new challange without title') do
+    it('no new challenge without title') do
       c = Challenge.create(description: description, owner: users(:one))
       expect(c).to be_invalid
     end
-    it('no new challange without owner') do
+    it('no new challenge without owner') do
       c = Challenge.create(title: title, description: description)
       expect(c).to be_invalid
     end
-    it('no new challange with too long description') do
+    it('no new challenge with too long description') do
       c = Challenge.create(title: title, description: toolongdescription, owner: users(:one))
       expect(c).to be_invalid
     end
-    it('no new challange with too long title') do
+    it('no new challenge with too long title') do
       c = Challenge.create(title: toolongtitle, description: description,owner: users(:one))
       expect(c).to be_invalid
     end

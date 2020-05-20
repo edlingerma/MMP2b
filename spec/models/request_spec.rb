@@ -16,7 +16,7 @@ RSpec.describe(Request, type: :model) do
       r = Request.create(challenge: challenges(:one))
       expect(r).to be_invalid
     end
-    it('no new request without challange') do
+    it('no new request without challenge') do
       r = Request.create(user: users(:one))
       expect(r).to be_invalid
     end
