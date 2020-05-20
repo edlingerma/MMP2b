@@ -13,6 +13,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+    hr{
+        background-color: #012340b5;
+    }
+
     @media screen and (max-width: 960px) {
       & {
         background-image: asset-data-url("laufen_960.jpg");
@@ -75,6 +79,3 @@
   margin-bottom: $space-medium;
 }
 
-hr{
-    background-color: #012340b5;
-}
