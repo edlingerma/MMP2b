@@ -3,7 +3,6 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  private_class_method :find_or_create_with_omniauth
   validates :username, presence: true, uniqueness: true
   validates :name, presence: true
   validates :username, :name, length: { maximum: 50 }
