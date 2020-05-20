@@ -78,7 +78,6 @@ RSpec.describe "contibute to activity", type: :system do
       fill_in :with => 10000, :placeholder => 'p.e. 1000'
       find('input[name="commit"]').click
 
-      expect(current_path).to eq challenge_path(3)
       sleep 2
       expect(find('.activities path:last-child').style('stroke-dashoffset')).to eq("stroke-dashoffset" => "100px") # testing javascript progressBar
       find('.activities input[type="submit"]').click
@@ -86,7 +85,6 @@ RSpec.describe "contibute to activity", type: :system do
       expect(current_path).to eq new_entry_path
       fill_in 'entry_amount', with: 5000
       find('input[name="commit"]').click
-      expect(current_path).to eq challenge_path(3)
       sleep 2
       expect(find('.activities path:last-child').style('stroke-dashoffset')).to eq("stroke-dashoffset" => "50px") # testing javascript progressBar after contribute
       find('.activities input[type="submit"]').click
@@ -94,7 +92,6 @@ RSpec.describe "contibute to activity", type: :system do
       expect(current_path).to eq new_entry_path
       fill_in 'entry_amount', with: 3000
       find('input[name="commit"]').click
-      expect(current_path).to eq challenge_path(3)
       sleep 2
       expect(find('.activities path:last-child').style('stroke-dashoffset')).to eq("stroke-dashoffset" => "20px") # testing javascript progressBar after contribute
       find('.activities input[type="submit"]').click
@@ -102,7 +99,6 @@ RSpec.describe "contibute to activity", type: :system do
       expect(current_path).to eq new_entry_path
       fill_in 'entry_amount', with: 10000
       find('input[name="commit"]').click
-      expect(current_path).to eq challenge_path(3)
       sleep 2
       expect(find('.activities path:last-child').style('stroke-dashoffset')).to eq("stroke-dashoffset" => "0px") # testing javascript progressBar after contribute
       expect(page).not_to have_button 'Contribute'

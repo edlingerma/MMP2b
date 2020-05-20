@@ -9,7 +9,7 @@ RSpec.describe(Request, type: :model) do
 
   describe "Create a new request" do
     it('correct input') do
-      r = Request.create(user: users(:one), challenge: challenges(:one))
+      r = Request.create(user: users(:two), challenge: challenges(:one))
       expect(r).to be_valid
     end
     it('no new request without user') do
