@@ -23,8 +23,8 @@ class EntriesController < ApplicationController
       return
     end
 
-    if @entry.activity.goal < @entry.activity.amount + @entry.amount
-      @entry.amount = @entry.activity.goal - @entry.activity.amount
+    if @entry.activity_goal < @entry.activity_amount + @entry.amount
+      @entry.amount = @entry.activity_goal - @entry.activity_amount
     end
 
     if @entry.save

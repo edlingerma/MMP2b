@@ -31,7 +31,7 @@
           <% @challenge.unconfirmed_requests.each do |request| %>
           <tbody>
             <tr>
-              <th><%= request.user.name %></th>
+              <th><%= request.user_name %></th>
               <td><%= link_to 'accept', accept_request_path(request.id) %></td>
               <td><%= link_to 'reject', reject_request_path(request.id) %></td>
             </tr>
@@ -57,7 +57,7 @@
           <% @challenge.confirmed_requests.each do |request| %>
           <tbody>
             <tr>
-              <th><%= request.user.name %></th>
+              <th><%= request.user_name %></th>
               <td><%= link_to 'remove', remove_confirmation_request_path(request.id) %></td>
             </tr>
           </tbody>
@@ -88,7 +88,7 @@
       <% @entries.each do |entry| %>
           <tbody>
             <tr>
-              <td><%= "#{entry.created_at}: #{entry.user.name} contributed #{entry.amount} #{entry.activity.unit} to Activity #{entry.activity.title}" %></td>
+              <td><%= "#{entry.created_at}: #{entry.user_name} contributed #{entry.amount} #{entry.activity_unit} to Activity #{entry.activity_title}" %></td>
               <td><%= link_to 'remove', entry_path(entry.id), method: 'delete' %></td>
             </tr>
           </tbody>
