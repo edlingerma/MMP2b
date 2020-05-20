@@ -6,7 +6,6 @@
 require('rails_helper')
 RSpec.describe(User, type: :model) do
   password = 'foobar1'
-  let!(:user) { User.create(username: "user1", name: "user", password: password, password_confirmation: password) }
 
   describe "Create new user with missing input" do
     it('no new user without username') do
@@ -14,7 +13,7 @@ RSpec.describe(User, type: :model) do
       expect(u).to be_invalid
     end
     it('no new user with existing username') do
-      u = User.create(username: 'user1', name: 'user', password: password, password_confirmation: password)
+      u = User.create(username: 'User1', name: 'user', password: password, password_confirmation: password)
       expect(u).to be_invalid
     end
     it('no new user without password') do
