@@ -4,11 +4,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   title: Challenge1
   description: Erste Challenge
   owner_id: 1
 
 two:
+  id: 2
   title: Challenge2
   description: Zweite Challenge
   owner_id: 1

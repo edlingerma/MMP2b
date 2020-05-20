@@ -33,17 +33,58 @@ RSpec.describe "contibute to activity", type: :system do
             expect(current_path).to eq signup_path
         end
 
-        it "signup" do
-            visit signup_path;
-            fill_in 'user_username', with: 'Seppp'
-            fill_in 'user_name', with: 'Sepp'
-            fill_in 'user_password', with: '123456'
-            fill_in 'user_password_confirmation', with: '123456'
-            find('input[name="commit"]').click
+        it "signup redirect" do
+            signup('Sppp', 'Password1')
             expect(current_path).to eq root_path
             expect(page).to have_content 'Log Out'
             expect(page).not_to have_content 'Log In'
         end
       end
 
+    describe "join challenge" do
+        before() do 
+            signup('Sepp', 'Password1')
+        end
+        
+        it "click challenge" do 
+            find('.challenge_title', match: :first).click
+            expect(current_path).to eq challenge_path(1)
+            expect(page).to have_content 'Activity1'
+            expect(page).to have_content 'Activity2'
+        end
+        
+        it "join challenge" do
+            visit challenge_path(1)
+            expect(page).to have_button '.button'
+            find('.button').click
+            expect(page).not_to have_button '.button'
+        end
     end
+
+    describe "create and contribute to challenge" do
+        before() do 
+            signup('Seppl', 'Password1')
+        end
+
+        it "core feature" do
+            click_link "New Challenge"
+            expect(current_path).to eq new_challenge_path
+            fill_in "challenge_title", with: 'Training'
+            fill_in "challenge_description", with: 'Nicht sehr ausgewogen'
+            expect(page).not_to have_content 'Goal'
+            click_link "+"
+            expect(page).to have_content 'Goal'
+            fill_in  :with => 'Liegestütz', :placeholder =>'Activity title'
+            fill_in :with => 10000, :placeholder =>'p.e. 1000' 
+            find('input[name="commit"]').click
+            expect(current_path).to eq challenge_path(3)
+            find('input[name="commit"]', match: :last).click
+            expect(current_path).to eq new_entry_path(3)
+            fill_in 'enty_amount', with: 500
+            find('input[name="commit"]').click
+            expect(current_path).to eq challenge_path(3)
+
+
+        end
+    end
+end
