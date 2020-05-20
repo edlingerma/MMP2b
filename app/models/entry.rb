@@ -8,4 +8,5 @@ class Entry < ApplicationRecord
   validates_numericality_of :amount
   validates_length_of :amount, minimum: 1
   delegate :goal, :amount, :unit, :title, :to => :activity, :prefix => true
+  delegate :name, :to => :user, :prefix => true
 end
