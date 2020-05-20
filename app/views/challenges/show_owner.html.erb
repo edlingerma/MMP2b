@@ -1,6 +1,6 @@
-<%# 
+<%#
  Impressum
- Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 %>
 
 <section class="hero"></section>
@@ -31,7 +31,7 @@
           <% @challenge.unconfirmed_requests.each do |request| %>
           <tbody>
             <tr>
-              <th><%= request.user.name %></th>
+              <th><%= request.user_name %></th>
               <td><%= link_to 'accept', accept_request_path(request.id) %></td>
               <td><%= link_to 'reject', reject_request_path(request.id) %></td>
             </tr>
@@ -48,17 +48,17 @@
     <% else %>
     <section class="show-container__list list">
       <table class="table is-hoverable is-fullwidth">
-          <thead>
-            <tr>
-              <th>User</th>
-              <td>Remove from Challenge</td>
-            </tr>
-          </thead>
+        <thead>
+        <tr>
+          <th>User</th>
+          <td>Remove from Challenge</td>
+        </tr>
+        </thead>
           <% @challenge.confirmed_requests.each do |request| %>
           <tbody>
             <tr>
-              <th><%= request.user.name %></th>
-              <td><%= link_to 'remove', remove_confirmation_request_path(request.id) %></td>
+              <th><%= request.user_name %></th>
+              <td><%= link_to 'remove', "/confirmations/request/#{request.id}/#{@challenge.id}" %></td>
             </tr>
           </tbody>
         <% end %>
@@ -73,7 +73,7 @@
         <%= button_to 'Edit Challenge', edit_challenge_path, method: 'get', class: 'button is-success is-outlined button-transition' %>
       </section>
       <section class="column">
-        <%= button_to 'Delete Challenge', destroy_confirmation_challenge_path, method: 'get', class: 'button is-danger is-outlined button-transition' %>
+        <%= button_to 'Delete Challenge', "/confirmations/challenge/#{@challenge.id}/#{@challenge.id}", method: 'get', class: 'button is-danger is-outlined button-transition' %>
       </section>
     </section>
   </section>
@@ -83,12 +83,17 @@
   <% if @entries.length == 0 %>
     <p>There are currently no entries in the challenge</p>
   <% else %>
-    <section class="show-container__list--entries list">
+    <section class="show-container__list--entries">
+      <table class="table is-hoverable">
       <% @entries.each do |entry| %>
-        <p class="list-item">
-          <%= "#{entry.created_at}: #{entry.user.name} contributed #{entry.amount} #{entry.activity.unit} to Activity #{entry.activity.title}" %>
-        </p>
+          <tbody>
+            <tr>
+              <td><%= "#{entry.created_at}: #{entry.user_name} contributed #{entry.amount} #{entry.activity_unit} to Activity #{entry.activity_title}" %></td>
+              <td><%= link_to 'remove', entry_path(entry.id), method: 'delete' %></td>
+            </tr>
+          </tbody>
       <% end %>
+      </table>
     </section>
   <% end %>
 </section>

@@ -1,1 +1,4 @@
 require: rubocop-rails
+Metrics/LineLength:
+  Max: 200
+  IgnoredPatterns: ['\A#']

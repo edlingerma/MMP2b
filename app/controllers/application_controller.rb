@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
       challenges = Challenge.all
       num_requests = 0
       challenges.each do |challenge|
-        num_requests += challenge.unconfirmed_requests.length if challenge.owner == current_user
+        num_requests += challenge.unconfirmed_requests.length if is_owner(challenge)
       end
       num_requests
     end

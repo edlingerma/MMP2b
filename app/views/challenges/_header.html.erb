@@ -1,6 +1,6 @@
-<%# 
+<%#
  Impressum
- Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 %>
 
 <div id="menuToggle">
@@ -8,7 +8,6 @@
         <span></span>
         <span></span>
         <span></span>
-                            
         <ul id="menu">
             <li><%= link_to 'Home', root_path %></li>
             <% if current_user %>
@@ -51,5 +50,5 @@
             <% else %>
                 <div class="header_item"><%= link_to "Sign Up", signup_path %> or
                 <%= link_to "Log In", login_path %></div>
-            <% end %> 
+            <% end %>
 </header>

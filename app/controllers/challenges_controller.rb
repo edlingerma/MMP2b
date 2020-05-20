@@ -30,7 +30,6 @@ class ChallengesController < ApplicationController
   end
 
   def edit
-
   end
 
   def new
@@ -93,9 +92,11 @@ class ChallengesController < ApplicationController
   end
 
   def is_candidate
+    return false unless current_user
+
     requests = @challenge.unconfirmed_requests
     requests.each do |request|
-      return true if request.user == current_user
+      return true if current_user.requests.find_by(id: request.id)
     end
     false
   end

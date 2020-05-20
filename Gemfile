@@ -76,3 +76,5 @@ gem "image_processing"
 
 # For test of json-API
 gem 'rswag'
+
+gem 'rails_best_practices'

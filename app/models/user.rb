@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
   has_many :entries
   has_many :challenges, :through => :requests
 
-  private
-
   def self.find_or_create_with_omniauth(auth)
     # look for an existing authorisation
     # provider + uid uniquely identify a user

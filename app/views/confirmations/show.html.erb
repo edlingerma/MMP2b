@@ -1,6 +1,6 @@
-<%# 
+<%#
  Impressum
- Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner 
+ Copyright by Maria Edlinger, Jonathan Lex and Markus Wallner
 %>
 
 <div class="form">
@@ -17,14 +17,14 @@
       <% end %>
 
       <p class="confirmation">
-        The User can not be restored!
+        This action can not be undone!
       </p>
       <div class="columns centered">
         <div class="column">
-          <%= button_to 'Delete User', reject_request_path(@request.id), method: 'get', class: 'button is-danger is-outlined button-transition' %>
+          <%= button_to 'Delete', @path, method: @method, class: 'button is-danger is-outlined button-transition' %>
         </div>
         <div class="column">
-          <%= button_to 'Back to Challenge', show_owner_challenge_path(@challenge), method: 'get', class: 'button is-success is-outlined button-transition' %>
+          <%= button_to 'Back to Challenge', show_owner_challenge_path(@challenge_id), method: 'get', class: 'button is-success is-outlined button-transition' %>
         </div>
       </div>
     </div>

@@ -8,35 +8,38 @@ Rails.application.routes.draw do
     member do
       get :request_membership
       get :show_owner
-      get :destroy_confirmation
     end
     collection do
       get :my_challenges
     end
   end
 
-  resources :requests do
+  resources :requests, only: %i[accept reject] do
     member do
       get :accept
       get :reject
-      get :remove_confirmation
     end
   end
 
-  resources :entries do
+  resources :entries, only: %i[new destroy create] do
     member do
       get :new
+      get :destroy
       post :create
     end
   end
 
+  controller :confirmations do
+    match 'confirmations/:type/:id/:challenge_id', to: 'confirmations#show', via: %i[get]
+  end
+
   root 'challenges#index'
   resources :users, only: [:create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: %i[new create destroy]
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  match '/auth/:provider/callback', to: 'sessions#create_oauth', via: [:get, :post]
-  match '/auth/failure',            to: 'sessions#failure', via: [:get, :post]
+  match '/auth/:provider/callback', to: 'sessions#create_oauth', via: %i[get post]
+  match '/auth/failure',            to: 'sessions#failure', via: %i[get post]
 end
