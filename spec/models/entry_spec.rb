@@ -5,15 +5,14 @@
 
 require('rails_helper')
 RSpec.describe(Entry, type: :model) do
-
   amount = 10
   password = 'foobar1'
   title = 'testtitle'
   description = 'foo bar text'
-  before{
-    (@current_user=User.create(username: "user1", name: "user", password: password, password_confirmation: password))
-    (@challenge=Challenge.create(title: title, description: description, owner: @current_user))
-    (@activity=Activity.create(title: title, description: description, goal: 100, challenge: @challenge))
+  before {
+    (@current_user = User.create(username: "user1", name: "user", password: password, password_confirmation: password))
+    (@challenge = Challenge.create(title: title, description: description, owner: @current_user))
+    (@activity = Activity.create(title: title, description: description, goal: 100, challenge: @challenge))
   }
 
   describe "Create a new entry" do

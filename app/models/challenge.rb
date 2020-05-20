@@ -10,7 +10,7 @@ class Challenge < ActiveRecord::Base
   accepts_nested_attributes_for :activities, allow_destroy: true, reject_if: proc { |attr| attr['title'].blank? }
   validates :title, :owner, presence: true
   validates :description, length: { maximum: 240 }
-  validates :title, length: {:within => 5..50 }
+  validates :title, length: { :within => 5..50 }
   has_one_attached :avatar
   validates :avatar, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: 'must be a JPEG or PNG' }
   def unconfirmed_requests

@@ -7,11 +7,11 @@ require('rails_helper')
 RSpec.describe(Challenge, type: :model) do
   title = 'testtitle'
   description = 'foo bar text'
-  toolongdescription = 'a'*241
-  toolongtitle = 'a'*51
+  toolongdescription = 'a' * 241
+  toolongtitle = 'a' * 51
   password = 'foobar1'
-  before{
-    (@current_user=User.create(username: "user1", name: "user", password: password, password_confirmation: password))
+  before {
+    (@current_user = User.create(username: "user1", name: "user", password: password, password_confirmation: password))
   }
 
   describe "Create a new challange" do
@@ -36,5 +36,4 @@ RSpec.describe(Challenge, type: :model) do
       expect(c).to be_invalid
     end
   end
-  
 end

@@ -30,7 +30,6 @@ class ChallengesController < ApplicationController
   end
 
   def edit
-
   end
 
   def new

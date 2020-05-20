@@ -8,10 +8,10 @@ RSpec.describe(Request, type: :model) do
   password = 'foobar1'
   title = 'testtitle'
   description = 'foo bar text'
-  before{
-    (@current_user=User.create(username: "user1", name: "user", password: password, password_confirmation: password))
-    (@owner=User.create(username: "user22", name: "user", password: password, password_confirmation: password))
-    (@challenge=Challenge.create(title: title, description: description, owner: @owner))
+  before {
+    (@current_user = User.create(username: "user1", name: "user", password: password, password_confirmation: password))
+    (@owner = User.create(username: "user22", name: "user", password: password, password_confirmation: password))
+    (@challenge = Challenge.create(title: title, description: description, owner: @owner))
   }
 
   describe "Create a new request" do
