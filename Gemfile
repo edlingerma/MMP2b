@@ -78,3 +78,5 @@ gem "image_processing"
 gem 'rswag'
 
 gem 'rails_best_practices'
+
+gem 'rack-mini-profiler', require: false
