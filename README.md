@@ -15,3 +15,11 @@ This is our MMP2b from Maria Edlinger, Jonathan Lex and Markus Wallner
 ``rails spec`` Runs all tests
 
 ``rails spec:system`` Runs the system tests
+
+## Caching
+ 
+vorher:  
+![vorher](vorher.png "Vorher")  
+
+danach haben wir Fragment Caching angewandt  
+![nachher](nachher1.png "Nachher1")  
