@@ -21,5 +21,10 @@ This is our MMP2b from Maria Edlinger, Jonathan Lex and Markus Wallner
 vorher:  
 ![vorher](vorher.png "Vorher")  
 
+### 1. Fragment Caching
 danach haben wir Fragment Caching angewandt  
 ![nachher](nachher1.png "Nachher1")  
+
+### 2. Russian Doll Caching
+Wir hatten das Problem, dass wenn eine Activity bearbeitet wurde, der alte Cache geladen wurde, weil eine Abhängigkeit von den Challenges zu den Activities fehlte. Deshalb diese Verbesserung im Code:  
+![nachher](nachher2.png "Nachher2")  
