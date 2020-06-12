@@ -57,8 +57,6 @@ In Bezug auf 3. n+1 queries: Hier zahlt es sich aus einmal alle User der Challen
 * Bei der Show-Seite (3) um genau 257.2 Millisekunden, indem statt 20 SQL-Abfragen nur 15 durchgeführt werden mussten.
 
   
-Ist die Messung in development gleich wie in production?  
-ca.  
-  
-Hätte die Messung in development ausgereicht?  
-jo grundsätzlich schon aber eigentlich nicht  
+Ist die Messung in development gleich wie in production? Hätte die Messung in development ausgereicht?  
+Dadurch, dass wir Caching auch für Development enabled haben, liefert die Messung ähnliche Ergebnisse wie in Production.  
+Ein Unterschied könnte entstehen, weil in Development die Caching-Fragments auf der Festplatte gespeichert werden (tmp/file_store) während sie in Production im Arbeitsspeicher gespeichert werden (memorystore).
