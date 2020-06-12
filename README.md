@@ -36,3 +36,13 @@ vorher:
 
 wir haben users und requests included:  
 ![nachher](nachher3.png "Nachher")  
+
+
+### 4. zusätzliches Fragment Caching  
+
+bei Punkt 1 & 2 wo wir die Show-Seite gecacht haben, hatten wir das Problem, dass die Seite unterschiedlich aussieht abhängig davon ob ein User eingeloggt ist oder nicht. Deshalb mussten wir das Fragment Caching entfernen und haben es auf jede Challenge der Index-Seite angewandt.  
+
+vorher:  
+![vorher-home](vorher-4.png "Vorher")  
+nachher:  
+![nachher-home](nachher-4.png "Nachher")  
