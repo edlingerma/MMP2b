@@ -6,6 +6,7 @@
 <div class="blurr">
   <div class="columns is-multiline is-centered">
    <% challenges.each do |challenge| %>
+    <% cache challenge do %>
       <div class="column is-half challengeWrapper">
         <div class="challengeContainer">
 
@@ -27,6 +28,7 @@
 
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
