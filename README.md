@@ -46,3 +46,19 @@ vorher:
 ![vorher-home](vorher-4.png "Vorher")  
 nachher:  
 ![nachher-home](nachher-4.png "Nachher")  
+
+
+## Forschungsfragen
+Was bring Caching bei dieser App?  
+**Performanceverbesserung**  
+Bei dieser App zahlt sich besonders das Fragment Caching aus. Die Challenges auf der Index-Seite sieht jeder User gleich. 
+In Bezug auf 3. n+1 queries: Hier zahlt es sich aus einmal alle User der Challenges abzufragen, da es sein kann, dass eine Challenge sehr viele Mitglieder haben kann und für jedes einzelne Mitglied eine eigene SQL-Abfrage getätigt werden müsste. Durch die Umsetzung der Verbesserung konnten wir eine Verringerung der Ladezeit feststellen.  
+* Bei der Index-Seite (4) um mehr als die Hälfte (560 Millisekunden) 
+* Bei der Show-Seite (3) um genau 257.2 Millisekunden, indem statt 20 SQL-Abfragen nur 15 durchgeführt werden mussten.
+
+  
+Ist die Messung in development gleich wie in production?  
+ca.  
+  
+Hätte die Messung in development ausgereicht?  
+jo grundsätzlich schon aber eigentlich nicht  
