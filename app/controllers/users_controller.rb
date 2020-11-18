@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, success: "Successfully registered!"
+      redirect_to root_url, success: "Konto erfolgreich erstellt!"
     else
       flash.now[:alert] = "Unknown error!"
       render "new"

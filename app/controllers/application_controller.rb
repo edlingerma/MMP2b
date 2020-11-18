@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in
     unless current_user
-      redirect_to signup_path, warning: 'You must be logged in.'
+      redirect_to signup_path, warning: 'Du musst eingeloggt sein.'
     end
   end
 

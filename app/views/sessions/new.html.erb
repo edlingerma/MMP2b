@@ -10,7 +10,7 @@
       <div class="field is-grouped is-grouped-centered">
         <%= link_to '/auth/facebook' do %>
           <button class="loginBtn loginBtn--facebook">
-            Login with Facebook
+            Login mit Facebook
           </button>
         <% end  %>
       </div>
@@ -25,12 +25,12 @@
 
         <%= form_tag sessions_path do |form| %>
           <div class="field">
-            <%= label_tag :username, "Username", class: "label" %>
+            <%= label_tag :username, "Benutzername", class: "label" %>
             <%= text_field_tag :username, "", class: "input", type: "text" %>
           </div>
 
           <div class="field">
-            <%= label_tag :password, "Password", class: "label" %>
+            <%= label_tag :password, "Passwort", class: "label" %>
             <%= password_field_tag :password, "", class:"input", type:"password" %>
           </div>
 
@@ -40,7 +40,7 @@
             </div>
           </div>
         <div class= "has-text-centered" >
-          or <%= link_to 'Sign Up', signup_path %>
+          oder <%= link_to 'Konto erstellen', signup_path %>
         </div>
         <% end %>
     </div>

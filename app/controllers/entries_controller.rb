@@ -14,7 +14,10 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.user = current_user
     check_membership
-    check_valid_number(@entry.amount)
+    unless check_valid_number(@entry.amount)
+      redirect_to @entry.activity.challenge, error: 'Oops, da ist etwas schiefgelaufen. Hast du eine gültige Zahl angegeben? Bitte versuche es erneut.'
+      return
+    end
     calculate_amount
     check_save(@entry)
   end
@@ -53,17 +56,14 @@ class EntriesController < ApplicationController
   end
 
   def check_valid_number(number)
-    unless number && number >= 1
-      redirect_to @entry.activity.challenge, warning: 'Did you enter a valid number?'
-      return
-    end
+    number && number >= 1
   end
 
   def check_save(entry)
     if entry.save
-      redirect_to entry.activity.challenge, success: 'Entry was successfully confirmed.'
+      redirect_to entry.activity.challenge, success: 'Beitrag wurde erfolgreich hinzugefügt'
     else
-      redirect_to entry.activity.challenge, error: 'Oops, there was an error with your entry. Did you enter a valid number? Please try again.'
+      redirect_to entry.activity.challenge, error: 'Oops, da ist etwas schiefgelaufen. Hast du eine gültige Zahl angegeben? Bitte versuche es erneut.'
     end
   end
 end

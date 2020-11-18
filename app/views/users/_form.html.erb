@@ -22,34 +22,34 @@
   <div class="field is-grouped is-grouped-centered">
     <%= link_to '/auth/facebook' do %>
       <button class="loginBtn loginBtn--facebook">
-        Sign up with Facebook
+        Login mit Facebook
       </button>
     <% end  %>
   </div>
  <hr>
 <%= form_with(model: user, local: true) do |form| %>
   <div class="field">
-    <%= form.label :username, class: "label" %>
+    <%= form.label :username, "Benutzername", class: "label" %>
     <%= form.text_field :username, method: "get", class: "input", type: "text" %>
   </div>
 
   <div class="field">
-    <%= form.label :name, class: "label" %>
+    <%= form.label :name, "Name", class: "label" %>
     <%= form.text_field :name, method: "get", class: "input", type: "text" %>
   </div>
 
   <div class="field">
-    <%= form.label :password, class: "label" %>
+    <%= form.label :password, "Passwort", class: "label" %>
     <%= form.password_field :password, method: "get", class:"input", type:"password"  %>
   </div>
 
   <div class="field">
-    <%= form.label :password_confirmation, class: "label" %>
+    <%= form.label :password_confirmation, "Passwort bestätigen", class: "label" %>
     <%= form.password_field :password_confirmation, method: "get", class:"input", type:"password"  %>
   </div>
   <div class="field is-grouped is-grouped-centered" >
     <div class="actions">
-      <%= submit_tag "Sign up", method: "get", class: "button is-primary"  %>
+      <%= submit_tag "Konto erstellen", method: "get", class: "button is-primary"  %>
     </div>
   </div>
 <% end %>

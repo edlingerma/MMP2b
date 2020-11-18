@@ -73,7 +73,7 @@ class ChallengesController < ApplicationController
     @request = Request.create(challenge: @challenge, user: current_user)
 
     if @request
-      redirect_to @challenge, success: 'Request was successfully created.'
+      redirect_to @challenge, success: 'Die Anfrage wurde erfolgreich erstellt. Warte auf die Freigabe durch einen Administrator'
     else
       redirect_to @challenge, error: 'Oops, there was an error with your request. Please try again.'
     end
